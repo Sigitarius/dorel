@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.comarch.pl/cdn/optima/offline" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="SKLADNIK_PRACOWNIK_ID" type="xs:string"/>
+  <xs:element name="SKLADNIK_PRACOWNIK" type="xs:string"/>
+  <xs:element name="SKLADNIK_WYDZIAL_ID" type="xs:string"/>
+  <xs:element name="SKLADNIK_WYDZIAL" type="xs:string"/>
+  <xs:element name="SKLADNIK_TYP_WYPLATY_ID" type="xs:string"/>
+  <xs:element name="SKLADNIK_TYP_WYPLATY" type="xs:string"/>
+  <xs:element name="SKLADNIK_NAZWA" type="xs:string"/>
+  <xs:element name="SKLADNIK_WARTOSC" type="xs:string"/>
+  <xs:element name="SKLADNIK_WARTOSC_WAL" type="xs:string"/>
+  <xs:element name="SKLADNIK_WARTOSC1" type="xs:string"/>
+  <xs:element name="SKLADNIK_WARTOSC2" type="xs:string"/>
+  <xs:element name="SKLADNIK_DATA_OD" type="xs:string"/>
+  <xs:element name="SKLADNIK_DATA_DO" type="xs:string"/>
+  <xs:element name="SKLADNIK_DATA_DANYCH" type="xs:string"/>
+  <xs:element name="SKLADNIK_OKRES_DNI" type="xs:string"/>
+  <xs:element name="SKLADNIK_OKRES_CZAS" type="xs:string"/>
+  <xs:element name="SKLADNIK_GODZINY" type="xs:string"/>
+  <xs:element name="SKLADNIK_EKWIWALENT_ILOSC" type="xs:string"/>
+  <xs:element name="SKLADNIK_PROCENT" type="xs:string"/>
+  <xs:element name="SKLADNIK_SPLACONO" type="xs:string"/>
+  <xs:element name="SKLADNIK_SPLACONO_ALL" type="xs:string"/>
+  <xs:element name="SKLADNIK_ARCHIWALNY" type="xs:string"/>
+  <xs:element name="SKLADNIK">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="off:SKLADNIK_PRACOWNIK_ID" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:SKLADNIK_PRACOWNIK" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:SKLADNIK_WYDZIAL_ID" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:SKLADNIK_WYDZIAL" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:SKLADNIK_TYP_WYPLATY_ID" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:SKLADNIK_TYP_WYPLATY" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:SKLADNIK_NAZWA" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:SKLADNIK_PODSTAWA" minOccurs="0" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:SKLADNIK_WARTOSC" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:SKLADNIK_WARTOSC_WAL" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:SKLADNIK_WARTOSC1" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:SKLADNIK_WARTOSC2" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:SKLADNIK_DATA_OD" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:SKLADNIK_DATA_DO" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:SKLADNIK_DATA_DANYCH" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:SKLADNIK_OKRES_DNI" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:SKLADNIK_OKRES_CZAS" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:SKLADNIK_GODZINY" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:SKLADNIK_EKWIWALENT_ILOSC" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:SKLADNIK_PROCENT" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:SKLADNIK_SPLACONO" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:SKLADNIK_SPLACONO_ALL" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:SKLADNIK_ARCHIWALNY" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ELEMENT_PRACOWNIK_ID" type="xs:string"/>
+  <xs:element name="ELEMENT_PRACOWNIK" type="xs:string"/>
+  <xs:element name="ELEMENT_TYP_WYPLATY_ID" type="xs:string"/>
+  <xs:element name="ELEMENT_TYP_WYPLATY" type="xs:string"/>
+  <xs:element name="ELEMENT_NAZWA" type="xs:string"/>
+  <xs:element name="ELEMENT_WARTOSC" type="xs:string"/>
+  <xs:element name="ELEMENT_WARTOSC_WAL" type="xs:string"/>
+  <xs:element name="ELEMENT_NETTO" type="xs:string"/>
+  <xs:element name="ELEMENT_NETTO_WAL" type="xs:string"/>
+  <xs:element name="ELEMENT_BRUTTO_50" type="xs:string"/>
+  <xs:element name="ELEMENT_KOSZTY" type="xs:string"/>
+  <xs:element name="ELEMENT_KOSZTY_50" type="xs:string"/>
+  <xs:element name="ELEMENT_PRZYCHOD_50" type="xs:string"/>
+  <xs:element name="ELEMENT_WALUTA" type="xs:string"/>
+  <xs:element name="ELEMENT_ULGA" type="xs:string"/>
+  <xs:element name="ELEMENT_ZAL_FIS" type="xs:string"/>
+  <xs:element name="ELEMENT_NAL_FIS" type="xs:string"/>
+  <xs:element name="ELEMENT_TY_UB" type="xs:string"/>
+  <xs:element name="ELEMENT_NR_ZUS" type="xs:string"/>
+  <xs:element name="ELEMENT_PODST_EMER" type="xs:string"/>
+  <xs:element name="ELEMENT_PODST_RENT" type="xs:string"/>
+  <xs:element name="ELEMENT_PODST_CHOR" type="xs:string"/>
+  <xs:element name="ELEMENT_PODST_WYPAD" type="xs:string"/>
+  <xs:element name="ELEMENT_PODST_ZDROW" type="xs:string"/>
+  <xs:element name="ELEMENT_PODST_FP" type="xs:string"/>
+  <xs:element name="ELEMENT_PODST_FGSP" type="xs:string"/>
+  <xs:element name="ELEMENT_PODST_FEP" type="xs:string"/>
+  <xs:element name="ELEMENT_PODST_PPK" type="xs:string"/>
+  <xs:element name="ELEMENT_SKL_EMER_PRAC" type="xs:string"/>
+  <xs:element name="ELEMENT_SKL_EMER_FIRMA" type="xs:string"/>
+  <xs:element name="ELEMENT_SKL_RENT_PRAC" type="xs:string"/>
+  <xs:element name="ELEMENT_SKL_RENT_FIRMA" type="xs:string"/>
+  <xs:element name="ELEMENT_SKL_CHOR_PRAC" type="xs:string"/>
+  <xs:element name="ELEMENT_SKL_CHOR_FIRMA" type="xs:string"/>
+  <xs:element name="ELEMENT_SKL_WYPAD_PRAC" type="xs:string"/>
+  <xs:element name="ELEMENT_SKL_WYPAD_FIRMA" type="xs:string"/>
+  <xs:element name="ELEMENT_SKL_ZDROW_PRAC" type="xs:string"/>
+  <xs:element name="ELEMENT_SKL_ZDROW_FIRMA" type="xs:string"/>
+  <xs:element name="ELEMENT_SKL_ZDROW_SUMA" type="xs:string"/>
+  <xs:element name="ELEMENT_SKL_FP" type="xs:string"/>
+  <xs:element name="ELEMENT_SKL_FGSP" type="xs:string"/>
+  <xs:element name="ELEMENT_SKL_FEP" type="xs:string"/>
+  <xs:element name="ELEMENT_SKL_PPK_PRAC1" type="xs:string"/>
+  <xs:element name="ELEMENT_SKL_PPK_PRAC2" type="xs:string"/>
+  <xs:element name="ELEMENT_SKL_PPK_FIRMA1" type="xs:string"/>
+  <xs:element name="ELEMENT_SKL_PPK_FIRMA2" type="xs:string"/>
+  <xs:element name="ELEMENT_KATEGORIA_OPIS" type="xs:string"/>
+  <xs:element name="ELEMENT_ARCHIWALNY" type="xs:string"/>
+  <xs:element name="ELEMENT_TEMP" type="xs:string"/>
+  <xs:element name="ELEMENT_ZAL_FIS_ZWOL" type="xs:string"/>
+  <xs:element name="ELEMENT_PODST_FIS_ZWOL" type="xs:string"/>
+  <xs:element name="ELEMENT_PODST_EMER_ZWOL" type="xs:string"/>
+  <xs:element name="ELEMENT_PODST_RENT_ZWOL" type="xs:string"/>
+  <xs:element name="ELEMENT_PODST_CHOR_ZWOL" type="xs:string"/>
+  <xs:element name="ELEMENT_PODST_ZDROW_ZWOL" type="xs:string"/>
+  <xs:element name="ELEMENT_SKL_EMER_PRAC_ZWOL" type="xs:string"/>
+  <xs:element name="ELEMENT_SKL_RENT_PRAC_ZWOL" type="xs:string"/>
+  <xs:element name="ELEMENT_SKL_CHOR_PRAC_ZWOL" type="xs:string"/>
+  <xs:element name="ELEMENT_SKL_ZDROW_PRAC_ZWOL" type="xs:string"/>
+  <xs:element name="SKLADNIKI">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="off:SKLADNIK" maxOccurs="unbounded" minOccurs="0" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OPISY">
+    <xs:complexType mixed="true">
+      <xs:sequence>
+        <xs:element ref="off:OPIS" minOccurs="0" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OPIS_PLAC_PRACOWNIK_ID" type="xs:string"/>
+  <xs:element name="OPIS_PLAC_PRACOWNIK" type="xs:string"/>
+  <xs:element name="OPIS_PLAC_WYDZIAL_ID" type="xs:string"/>
+  <xs:element name="OPIS_PLAC_WYDZIAL" type="xs:string"/>
+  <xs:element name="OPIS_PLAC_PROJEKT" type="xs:string"/>
+  <xs:element name="OPIS_PLAC_PROCENT" type="xs:string"/>
+  <xs:element name="OPIS_PLAC_BRUTTO" type="xs:string"/>
+  <xs:element name="OPIS_PLAC_ZUSF" type="xs:string"/>
+  <xs:element name="OPIS_PLAC_ZUSP" type="xs:string"/>
+  <xs:element name="OPIS_PLAC_ZDROW" type="xs:string"/>
+  <xs:element name="OPIS_PLAC_ZAL_FIS" type="xs:string"/>
+  <xs:element name="OPIS_PLAC_PPKP" type="xs:string"/>
+  <xs:element name="OPIS_PLAC_PPKF" type="xs:string"/>
+  <xs:element name="OPIS">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="off:OPIS_PLAC_PRACOWNIK_ID" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:OPIS_PLAC_PRACOWNIK" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:OPIS_PLAC_WYDZIAL_ID" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:OPIS_PLAC_WYDZIAL" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:OPIS_PLAC_PROJEKT" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:OPIS_PLAC_PROCENT" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:OPIS_PLAC_BRUTTO" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:OPIS_PLAC_ZUSF" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:OPIS_PLAC_ZUSP" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:OPIS_PLAC_ZDROW" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:OPIS_PLAC_ZAL_FIS" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:OPIS_PLAC_PPKP" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:OPIS_PLAC_PPKF" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ELEMENT">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="off:ELEMENT_PRACOWNIK_ID" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ELEMENT_PRACOWNIK" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ELEMENT_TYP_WYPLATY_ID" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ELEMENT_TYP_WYPLATY" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ELEMENT_NAZWA" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ELEMENT_WARTOSC" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ELEMENT_WARTOSC_WAL" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ELEMENT_NETTO" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ELEMENT_NETTO_WAL" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ELEMENT_BRUTTO_50" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ELEMENT_KOSZTY" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ELEMENT_KOSZTY_50" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ELEMENT_PRZYCHOD_50" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ELEMENT_WALUTA" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ELEMENT_ULGA" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ELEMENT_ZAL_FIS" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ELEMENT_NAL_FIS" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ELEMENT_TY_UB" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ELEMENT_NR_ZUS" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ELEMENT_PODST_EMER" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ELEMENT_PODST_RENT" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ELEMENT_PODST_CHOR" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ELEMENT_PODST_WYPAD" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ELEMENT_PODST_ZDROW" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ELEMENT_PODST_FP" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ELEMENT_PODST_FGSP" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ELEMENT_PODST_FEP" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ELEMENT_PODST_PPK" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ELEMENT_SKL_EMER_PRAC" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ELEMENT_SKL_EMER_FIRMA" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ELEMENT_SKL_RENT_PRAC" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ELEMENT_SKL_RENT_FIRMA" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ELEMENT_SKL_CHOR_PRAC" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ELEMENT_SKL_CHOR_FIRMA" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ELEMENT_SKL_WYPAD_PRAC" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ELEMENT_SKL_WYPAD_FIRMA" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ELEMENT_SKL_ZDROW_PRAC" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ELEMENT_SKL_ZDROW_FIRMA" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ELEMENT_SKL_ZDROW_SUMA" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ELEMENT_SKL_FP" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ELEMENT_SKL_FGSP" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ELEMENT_SKL_FEP" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ELEMENT_SKL_PPK_PRAC1" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ELEMENT_SKL_PPK_PRAC2" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ELEMENT_SKL_PPK_FIRMA1" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ELEMENT_SKL_PPK_FIRMA2" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ELEMENT_KATEGORIA_OPIS" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ELEMENT_ARCHIWALNY" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ELEMENT_TEMP" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ELEMENT_ZAL_FIS_ZWOL" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ELEMENT_PODST_FIS_ZWOL" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ELEMENT_PODST_EMER_ZWOL" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ELEMENT_PODST_RENT_ZWOL" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ELEMENT_PODST_CHOR_ZWOL" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ELEMENT_PODST_ZDROW_ZWOL" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ELEMENT_SKL_EMER_PRAC_ZWOL" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ELEMENT_SKL_RENT_PRAC_ZWOL" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ELEMENT_SKL_CHOR_PRAC_ZWOL" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ELEMENT_SKL_ZDROW_PRAC_ZWOL" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:SKLADNIKI" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:OPISY" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ID_ZRODLA" type="xs:string"/>
+  <xs:element name="PLATNOSC_TYP_PODMIOTU" type="xs:string"/>
+  <xs:element name="PLATNOSC_PODMIOT" type="xs:string"/>
+  <xs:element name="PLATNOSC_PODMIOT_ID" type="xs:string"/>
+  <xs:element name="PLATNOSC_PODMIOT_NIP" type="xs:string"/>
+  <xs:element name="PLATNOSC_PODMIOT_RACHUNEK_NR" type="xs:string"/>
+  <xs:element name="PLATNOSC_DEFINICJA_DOKUMENTU_ID" type="xs:string"/>
+  <xs:element name="PLATNOSC_DEFINICJA_DOKUMENTU_SYMBOL" type="xs:string"/>
+  <xs:element name="PLATNOSC_DEFINICJA_DOKUMENTU_NUMERACJA" type="xs:string"/>
+  <xs:element name="PLATNOSC_NUMER_PELNY" type="xs:string"/>
+  <xs:element name="PLATNOSC_NUMER_OBCY" type="xs:string"/>
+  <xs:element name="PLATNOSC_KIERUNEK" type="xs:string"/>
+  <xs:element name="PLATNOSC_KWOTA" type="xs:string"/>
+  <xs:element name="PLATNOSC_KWOTA_PLN" type="xs:string"/>
+  <xs:element name="PLATNOSC_WALUTA_DOK" type="xs:string"/>
+  <xs:element name="PLATNOSC_WALUTA" type="xs:string"/>
+  <xs:element name="PLATNOSC_KURS_WALUTY" type="xs:string"/>
+  <xs:element name="PLATNOSC_NOTOWANIE_WALUTY_ILE" type="xs:string"/>
+  <xs:element name="PLATNOSC_NOTOWANIE_WALUTY_ZA_ILE" type="xs:string"/>
+  <xs:element name="PLATNOSC_NOTOWANIE_DATA_KURSU" type="xs:string"/>
+  <xs:element name="PLATNOSC_DATA_DOK" type="xs:string"/>
+  <xs:element name="PLATNOSC_TERMIN" type="xs:string"/>
+  <xs:element name="PLATNOSC_DATA_REAL" type="xs:string"/>
+  <xs:element name="PLATNOSC_ZWLOKA" type="xs:string"/>
+  <xs:element name="PLATNOSC_FORMA_PLATNOSCI_ID" type="xs:string"/>
+  <xs:element name="PLATNOSC_FORMA_PLATNOSCI" type="xs:string"/>
+  <xs:element name="PLATNOSC_BANK_ID" type="xs:string"/>
+  <xs:element name="PLATNOSC_BANK" type="xs:string"/>
+  <xs:element name="PLATNOSC_RACHUNEK_NR" type="xs:string"/>
+  <xs:element name="PLATNOSC_IBAN" type="xs:string"/>
+  <xs:element name="PLATNOSC_PODLEGA_ROZLICZENIU" type="xs:string"/>
+  <xs:element name="PLATNOSC_NIE_NALICZAJ_ODSETEK" type="xs:string"/>
+  <xs:element name="PRZELEW_SEPA" type="xs:string"/>
+  <xs:element name="PLATNOSC_KONTO" type="xs:string"/>
+  <xs:element name="PLATNOSC_ELIXIR_O1" type="xs:string"/>
+  <xs:element name="PLATNOSC_ELIXIR_O2" type="xs:string"/>
+  <xs:element name="PLATNOSC_ELIXIR_O3" type="xs:string"/>
+  <xs:element name="PLATNOSC_ELIXIR_O4" type="xs:string"/>
+  <xs:element name="PLATNOSC_OPIS" type="xs:string"/>
+  <xs:element name="PLATNOSC_KOMORNIK_ZAJECIE_WYNAGR" type="xs:string"/>
+  <xs:element name="PLATNOSC">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="off:ID_ZRODLA" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:PLATNOSC_TYP_PODMIOTU" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:PLATNOSC_PODMIOT" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:PLATNOSC_PODMIOT_ID" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:PLATNOSC_PODMIOT_NIP" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:PLATNOSC_PODMIOT_RACHUNEK_NR" minOccurs="0" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:PLATNOSC_DEFINICJA_DOKUMENTU_ID" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:PLATNOSC_DEFINICJA_DOKUMENTU_SYMBOL" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:PLATNOSC_DEFINICJA_DOKUMENTU_NUMERACJA" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:PLATNOSC_NUMER_PELNY" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:PLATNOSC_NUMER_OBCY" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:PLATNOSC_KIERUNEK" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:PLATNOSC_KWOTA" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:PLATNOSC_KWOTA_PLN" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:PLATNOSC_WALUTA_DOK" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:PLATNOSC_WALUTA" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:PLATNOSC_KURS_WALUTY" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:PLATNOSC_NOTOWANIE_WALUTY_ILE" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:PLATNOSC_NOTOWANIE_WALUTY_ZA_ILE" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:PLATNOSC_NOTOWANIE_DATA_KURSU" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:PLATNOSC_DATA_DOK" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:PLATNOSC_TERMIN" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:PLATNOSC_DATA_REAL" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:PLATNOSC_ZWLOKA" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:PLATNOSC_FORMA_PLATNOSCI_ID" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:PLATNOSC_FORMA_PLATNOSCI" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:PLATNOSC_BANK_ID" minOccurs="0" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:PLATNOSC_BANK" minOccurs="0" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:PLATNOSC_RACHUNEK_NR" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:PLATNOSC_IBAN" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:PLATNOSC_PODLEGA_ROZLICZENIU" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:PLATNOSC_NIE_NALICZAJ_ODSETEK" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:PRZELEW_SEPA" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:PLATNOSC_KONTO" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:PLATNOSC_ELIXIR_O1" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:PLATNOSC_ELIXIR_O2" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:PLATNOSC_ELIXIR_O3" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:PLATNOSC_ELIXIR_O4" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:PLATNOSC_OPIS" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:PLATNOSC_KOMORNIK_ZAJECIE_WYNAGR" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WYPLATA_PRACOWNIK_ID" type="xs:string"/>
+  <xs:element name="WYPLATA_PRACOWNIK" type="xs:string"/>
+  <xs:element name="WYPLATA_WYDZIAL_ID" type="xs:string"/>
+  <xs:element name="WYPLATA_WYDZIAL" type="xs:string"/>
+  <xs:element name="WYPLATA_NAZWA" type="xs:string"/>
+  <xs:element name="WYPLATA_DEFINICJA_DOKUMENTU_ID" type="xs:string"/>
+  <xs:element name="WYPLATA_DEFINICJA_DOKUMENTU_SYMBOL" type="xs:string"/>
+  <xs:element name="WYPLATA_DEFINICJA_DOKUMENTU_NUMERACJA" type="xs:string"/>
+  <xs:element name="WYPLATA_NUMER_STRING" type="xs:string"/>
+  <xs:element name="WYPLATA_NUMER_NR" type="xs:string"/>
+  <xs:element name="WYPLATA_NUMER_PELNY" type="xs:string"/>
+  <xs:element name="WYPLATA_DATA_DOK" type="xs:string"/>
+  <xs:element name="WYPLATA_ROK" type="xs:string"/>
+  <xs:element name="WYPLATA_MIESIAC" type="xs:string"/>
+  <xs:element name="WYPLATA_DATA_OD" type="xs:string"/>
+  <xs:element name="WYPLATA_DATA_DO" type="xs:string"/>
+  <xs:element name="WYPLATA_WARTOSC" type="xs:string"/>
+  <xs:element name="WYPLATA_BRUTTO" type="xs:string"/>
+  <xs:element name="WYPLATA_TRYB" type="xs:string"/>
+  <xs:element name="WYPLATA_KATEGORIA_OPIS" type="xs:string"/>
+  <xs:element name="WYPLATA_KOREKTA" type="xs:string"/>
+  <xs:element name="WYPLATA_KOREKTA_POLA" type="xs:string"/>
+  <xs:element name="WYPLATA_KOREKTA_POLA2" type="xs:string"/>
+  <xs:element name="WYPLATA_KOREKTA_PLATNOSCI" type="xs:string"/>
+  <xs:element name="WYPLATA_ARCHIWALNA" type="xs:string"/>
+  <xs:element name="WYPLATA_ZAMKNIETA" type="xs:string"/>
+  <xs:element name="WYPLATA_UMOWA_DOD_ZAS" type="xs:string"/>
+  <xs:element name="WYPLATA_OBNIZSKLPPK" type="xs:string"/>
+  <xs:element name="WYPLATA_PODSTAWAPODAT1" type="xs:string"/>
+  <xs:element name="WYPLATA_PODSTAWAPODAT2" type="xs:string"/>
+  <xs:element name="WYPLATA_PROCENTPODAT1" type="xs:string"/>
+  <xs:element name="WYPLATA_PROCENTPODAT2" type="xs:string"/>
+  <xs:element name="ELEMENTY">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="off:ELEMENT" maxOccurs="unbounded" minOccurs="0" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PLATNOSCI">
+    <xs:complexType mixed="true">
+      <xs:sequence>
+        <xs:element ref="off:PLATNOSC" maxOccurs="unbounded" minOccurs="0" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SKLADNIK_PODSTAWA" type="xs:string"/>
+  <xs:element name="WYPLATA">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="off:WYPLATA_PRACOWNIK_ID" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:WYPLATA_PRACOWNIK" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:WYPLATA_WYDZIAL_ID" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:WYPLATA_WYDZIAL" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:WYPLATA_NAZWA" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:WYPLATA_DEFINICJA_DOKUMENTU_ID" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:WYPLATA_DEFINICJA_DOKUMENTU_SYMBOL" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:WYPLATA_DEFINICJA_DOKUMENTU_NUMERACJA" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:WYPLATA_NUMER_STRING" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:WYPLATA_NUMER_NR" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:WYPLATA_NUMER_PELNY" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:WYPLATA_DATA_DOK" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:WYPLATA_ROK" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:WYPLATA_MIESIAC" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:WYPLATA_DATA_OD" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:WYPLATA_DATA_DO" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:WYPLATA_WARTOSC" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:WYPLATA_BRUTTO" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:WYPLATA_TRYB" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:WYPLATA_KATEGORIA_OPIS" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:WYPLATA_KOREKTA" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:WYPLATA_KOREKTA_POLA" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:WYPLATA_KOREKTA_POLA2" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:WYPLATA_KOREKTA_PLATNOSCI" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:WYPLATA_ARCHIWALNA" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:WYPLATA_ZAMKNIETA" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:WYPLATA_UMOWA_DOD_ZAS" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:WYPLATA_OBNIZSKLPPK" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:WYPLATA_PODSTAWAPODAT1" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:WYPLATA_PODSTAWAPODAT2" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:WYPLATA_PROCENTPODAT1" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:WYPLATA_PROCENTPODAT2" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ELEMENTY" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:PLATNOSCI" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SYMBOL" type="xs:string"/>
+  <xs:element name="NAZWA" type="xs:string"/>
+  <xs:element name="LISTA_PLAC_WYDZIAL_ID" type="xs:string"/>
+  <xs:element name="LISTA_PLAC_WYDZIAL" type="xs:string"/>
+  <xs:element name="DEFINICJA_DOKUMENTU_ID" type="xs:string"/>
+  <xs:element name="DEFINICJA_DOKUMENTU_SYMBOL" type="xs:string"/>
+  <xs:element name="DEFINICJA_DOKUMENTU_NUMERACJA" type="xs:string"/>
+  <xs:element name="NUMER_STRING" type="xs:string"/>
+  <xs:element name="NUMER_NR" type="xs:string"/>
+  <xs:element name="NUMER_PELNY" type="xs:string"/>
+  <xs:element name="DATA_DOKUMENTU" type="xs:string"/>
+  <xs:element name="ROK" type="xs:string"/>
+  <xs:element name="MIESIAC" type="xs:string"/>
+  <xs:element name="DATA_OD" type="xs:string"/>
+  <xs:element name="DATA_DO" type="xs:string"/>
+  <xs:element name="DATA_DANYCH" type="xs:string"/>
+  <xs:element name="TRYB" type="xs:string"/>
+  <xs:element name="KATEGORIA" type="xs:string"/>
+  <xs:element name="MIESIECY_WSTECZ" type="xs:string"/>
+  <xs:element name="ODDELEGOWANI" type="xs:string"/>
+  <xs:element name="TYMCZASOWI" type="xs:string"/>
+  <xs:element name="WALUTA" type="xs:string"/>
+  <xs:element name="KURS_WALUTY" type="xs:string"/>
+  <xs:element name="NOTOWANIE_WALUTY_ILE" type="xs:string"/>
+  <xs:element name="NOTOWANIE_WALUTY_ZA_ILE" type="xs:string"/>
+  <xs:element name="DATA_KURSU" type="xs:string"/>
+  <xs:element name="ZAKSIEGOWANA" type="xs:string"/>
+  <xs:element name="ZAMKNIETA" type="xs:string"/>
+  <xs:element name="WALUTADIETA" type="xs:string"/>
+  <xs:element name="ODDELEGOWANIKRAJ" type="xs:string"/>
+  <xs:element name="KURS_WALUTYDIETA" type="xs:string"/>
+  <xs:element name="NOTOWANIE_WALUTY_ILE_DIETA" type="xs:string"/>
+  <xs:element name="NOTOWANIE_WALUTY_ZA_ILE_DIETA" type="xs:string"/>
+  <xs:element name="DATA_KURSU_DIETA" type="xs:string"/>
+  <xs:element name="WYPLATY">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="off:WYPLATA" maxOccurs="unbounded" minOccurs="0" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WERSJA" type="xs:string"/>
+  <xs:element name="BAZA_ZRD_ID" type="xs:string"/>
+  <xs:element name="BAZA_DOC_ID" type="xs:string"/>
+  <xs:element name="LISTA_PLAC">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="off:ID_ZRODLA" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:SYMBOL" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:NAZWA" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:LISTA_PLAC_WYDZIAL_ID" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:LISTA_PLAC_WYDZIAL" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:DEFINICJA_DOKUMENTU_ID" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:DEFINICJA_DOKUMENTU_SYMBOL" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:DEFINICJA_DOKUMENTU_NUMERACJA" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:NUMER_STRING" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:NUMER_NR" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:NUMER_PELNY" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:DATA_DOKUMENTU" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ROK" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:MIESIAC" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:DATA_OD" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:DATA_DO" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:DATA_DANYCH" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:TRYB" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:KATEGORIA" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:MIESIECY_WSTECZ" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ODDELEGOWANI" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:TYMCZASOWI" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:WALUTA" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:KURS_WALUTY" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:NOTOWANIE_WALUTY_ILE" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:NOTOWANIE_WALUTY_ZA_ILE" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:DATA_KURSU" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ZAKSIEGOWANA" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ZAMKNIETA" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:WALUTADIETA" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:ODDELEGOWANIKRAJ" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:KURS_WALUTYDIETA" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:NOTOWANIE_WALUTY_ILE_DIETA" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:NOTOWANIE_WALUTY_ZA_ILE_DIETA" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:DATA_KURSU_DIETA" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:WYPLATY" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LISTY_PLAC">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="off:WERSJA" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:BAZA_ZRD_ID" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:BAZA_DOC_ID" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+        <xs:element ref="off:LISTA_PLAC" maxOccurs="unbounded" minOccurs="0" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ROOT">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="off:LISTY_PLAC" xmlns:off="http://www.comarch.pl/cdn/optima/offline"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
