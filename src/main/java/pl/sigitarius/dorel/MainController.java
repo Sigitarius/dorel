@@ -13,6 +13,13 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 import lombok.extern.slf4j.Slf4j;
+import pl.sigitarius.dorel.model.dao.AboutTheProductsDao;
+import pl.sigitarius.dorel.model.dao.EanPurePlayerDao;
+import pl.sigitarius.dorel.model.dao.EanSpecializedStoreDao;
+import pl.sigitarius.dorel.model.dao.FeaturesOverviewDao;
+import pl.sigitarius.dorel.model.dao.PimDao;
+import pl.sigitarius.dorel.model.dao.WebsiteImagesDao;
+import pl.sigitarius.dorel.model.db.Ean;
 import pl.sigitarius.dorel.model.listaplac.ELEMENT;
 import pl.sigitarius.dorel.model.listaplac.ELEMENTY;
 import pl.sigitarius.dorel.model.listaplac.LISTAPLAC;
@@ -24,6 +31,7 @@ import pl.sigitarius.dorel.model.listaplac.ROOT;
 import pl.sigitarius.dorel.model.listaplac.WYPLATA;
 import pl.sigitarius.dorel.model.listaplac.WYPLATY;
 import pl.sigitarius.dorel.model.pim.Data;
+import pl.sigitarius.dorel.model.pim.Item;
 import pl.sigitarius.dorel.utils.Alert;
 import pl.sigitarius.dorel.utils.Configuration;
 import pl.sigitarius.dorel.utils.MsSqlConnection;
@@ -36,9 +44,13 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.Set;
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Slf4j
 public class MainController implements Initializable {
@@ -46,6 +58,12 @@ public class MainController implements Initializable {
     private Stage splash;
     private Configuration conf;
     private MsSqlConnection defaultConnection;
+    private EanPurePlayerDao eanPurePlayerDao;
+    private EanSpecializedStoreDao eanSpecializedStoreDao;
+    private PimDao pimDao;
+    private AboutTheProductsDao aboutTheProductsDao;
+    private FeaturesOverviewDao featuresOverviewDao;
+    private WebsiteImagesDao websiteImagesDao;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -54,53 +72,71 @@ public class MainController implements Initializable {
         defaultConnection = new MsSqlConnection("default", conf.get("default.host"),
                 Integer.parseInt(conf.get("default.port")), conf.get("default.database"), conf.get("default.username"),
                 conf.get("default.password"));
+
+
+        eanPurePlayerDao = new EanPurePlayerDao(defaultConnection);
+        eanSpecializedStoreDao = new EanSpecializedStoreDao(defaultConnection);
+        pimDao = new PimDao(defaultConnection);
+        aboutTheProductsDao = new AboutTheProductsDao(defaultConnection);
+        featuresOverviewDao = new FeaturesOverviewDao(defaultConnection);
+        websiteImagesDao = new WebsiteImagesDao(defaultConnection);
     }
 
     @FXML
     void load(ActionEvent event) {
         log.info("Load objects from XML ");
         Window window = (((Node) event.getSource()).getScene()).getWindow();
-        File xmlFile = RetentionFileChooser.showOpenDialog(window, "Wskaż plik xml", RetentionFileChooser.FilterMode.XML_FILES);
-        File file = RetentionFileChooser.showSaveDialog(window, "Wskaż gdzie zapisać plik", RetentionFileChooser.FilterMode.XML_FILES);
+        File xmlFile = RetentionFileChooser.showOpenDialog(window, "Select XML file", RetentionFileChooser.FilterMode.XML_FILES);
         if (xmlFile != null) {
             Task<Void> task = new Task<Void>() {
 
-                String buttonLabel = ((Button) event.getSource()).getText();
+                final String buttonLabel = ((Button) event.getSource()).getText();
                 @Override
                 protected Void call() {
                     try{
+                        Set<Ean> eanPP = eanPurePlayerDao.getEans();
+                        Set<Ean> eanSS = eanSpecializedStoreDao.getEans();
+
+                        HashSet<Ean> eans = new HashSet<>();
+                        eans.addAll(eanPP);
+                        eans.addAll(eanSS);
+
                         Data data = PimJAXBUtils.getDataFromFile(xmlFile);
 
-                        data.getItem().forEach(i -> {
-                            log.info("ID: " + i.getID());
-                            log.info("Created: " + i.getCreated());
-                            log.info("Changed: " + i.getChanged());
-                            log.info("ParentID: " + i.getParentID());
+                        Set<String> eansStrings = eans.stream().map(Ean::getEan).collect(Collectors.toSet());
+
+                        Stream<Item> filtered = data.getItem().stream()
+                                .filter(i -> eansStrings.contains(i.getEAN13BarcodeText()));
+
+                        filtered.forEach(i -> {
+                            long articleNumber = i.getArticleNumber();
+                            pimDao.deletePimByArticleNumber(articleNumber);
+                            aboutTheProductsDao.deleteByArticleNumber(articleNumber);
+                            featuresOverviewDao.deleteByArticleNumber(articleNumber);
+                            websiteImagesDao.deleteByArticleNumber(articleNumber);
+                            pimDao.insertPim(i);
+                            aboutTheProductsDao.insertAboutTheProducts(i);
+                            featuresOverviewDao.insertFeatureOverview(i);
+                            websiteImagesDao.insertWebsiteImages(i);
                         });
 
-                        pl.sigitarius.dorel.model.pim.ObjectFactory pimOF = new pl.sigitarius.dorel.model.pim.ObjectFactory();
-                        Data dataOut = pimOF.createData();
-                        Data.Item dataItem = pimOF.createDataItem();
-                        dataOut.getItem().add(dataItem);
-
-                        PimJAXBUtils.saveDataToFile(dataOut, file);
 
                     } catch (Exception e){
                         log.error("Error occured", e);
-                        throw new RuntimeException();
+                        throw new RuntimeException(e);
                     }
                     return null;
                 }
                 @Override
                 protected void succeeded() {
                     splash.hide();
-                    new Alert(AlertType.INFORMATION, "Przetwarzanie listy płac", "Zakończono",
+                    new Alert(AlertType.INFORMATION, "Przetwarzanie obiektów PIM", "Zakończono",
                             "Poprawnie zakończono przepisywanie obiektów " + xmlFile.getName(), window);
                 }
                 @Override
                 protected void failed() {
                     splash.hide();
-                    new Alert(AlertType.ERROR, "Przetwarzanie listy płac", "Przerwano",
+                    new Alert(AlertType.ERROR, "Przetwarzanie obiektów PIM", "Przerwano",
                             "Wystąpił błąd podczas przetwarzania pliku " + xmlFile.getName(), window);
                 }
 

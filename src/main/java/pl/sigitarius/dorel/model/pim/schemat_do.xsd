@@ -1,168 +1,112 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:element name="data">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element name="item" maxOccurs="unbounded" minOccurs="0">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element type="xs:string" name="ID"/>
-              <xs:element type="xs:string" name="Created"/>
-              <xs:element type="xs:string" name="Changed"/>
-              <xs:element type="xs:string" name="ParentID"/>
-              <xs:element type="xs:string" name="PdmarticleID"/>
-              <xs:element type="xs:string" name="Label"/>
-              <xs:element name="Brand">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element name="item">
-                      <xs:complexType>
-                        <xs:sequence>
-                          <xs:element type="xs:string" name="ID"/>
-                          <xs:element type="xs:string" name="LABEL"/>
-                        </xs:sequence>
-                      </xs:complexType>
-                    </xs:element>
-                  </xs:sequence>
-                </xs:complexType>
-              </xs:element>
-              <xs:element type="xs:string" name="Approximate-Age-Text"/>
-              <xs:element type="xs:string" name="Commercial-product-name"/>
-              <xs:element type="xs:string" name="First-collection-year"/>
-              <xs:element type="xs:string" name="SEO-product-name"/>
-              <xs:element type="xs:string" name="SEO-Description"/>
-              <xs:element type="xs:string" name="Article-number"/>
-              <xs:element type="xs:string" name="ExternalKey"/>
-              <xs:element type="xs:string" name="sku"/>
-              <xs:element type="xs:string" name="Product-weight"/>
-              <xs:element name="Approximate-Age-Text-ext">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element name="item">
-                      <xs:complexType>
-                        <xs:sequence>
-                          <xs:element type="xs:string" name="ID"/>
-                          <xs:element type="xs:string" name="LABEL"/>
-                        </xs:sequence>
-                      </xs:complexType>
-                    </xs:element>
-                  </xs:sequence>
-                </xs:complexType>
-              </xs:element>
-              <xs:element name="Length-class-ext">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element name="item">
-                      <xs:complexType>
-                        <xs:sequence>
-                          <xs:element type="xs:string" name="ID"/>
-                          <xs:element type="xs:string" name="LABEL"/>
-                        </xs:sequence>
-                      </xs:complexType>
-                    </xs:element>
-                  </xs:sequence>
-                </xs:complexType>
-              </xs:element>
-              <xs:element type="xs:string" name="Intro-text-Consumer"/>
-              <xs:element type="xs:string" name="Long-description-2nd-part"/>
-              <xs:element type="xs:string" name="EAN13-barcode-Text"/>
-              <xs:element type="xs:string" name="ERP-full-product-name"/>
-              <xs:element name="Family">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element name="item">
-                      <xs:complexType>
-                        <xs:sequence>
-                          <xs:element type="xs:string" name="ID"/>
-                          <xs:element type="xs:string" name="LABEL"/>
-                        </xs:sequence>
-                      </xs:complexType>
-                    </xs:element>
-                  </xs:sequence>
-                </xs:complexType>
-              </xs:element>
-              <xs:element name="Line">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element name="item">
-                      <xs:complexType>
-                        <xs:sequence>
-                          <xs:element type="xs:string" name="ID"/>
-                          <xs:element type="xs:string" name="LABEL"/>
-                        </xs:sequence>
-                      </xs:complexType>
-                    </xs:element>
-                  </xs:sequence>
-                </xs:complexType>
-              </xs:element>
-              <xs:element name="Range">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element name="item">
-                      <xs:complexType>
-                        <xs:sequence>
-                          <xs:element type="xs:string" name="ID"/>
-                          <xs:element type="xs:string" name="LABEL"/>
-                        </xs:sequence>
-                      </xs:complexType>
-                    </xs:element>
-                  </xs:sequence>
-                </xs:complexType>
-              </xs:element>
-              <xs:element name="Feature-images-Website">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element name="item" maxOccurs="unbounded" minOccurs="0">
-                      <xs:complexType>
-                        <xs:sequence>
-                          <xs:element type="xs:string" name="ID"/>
-                          <xs:element type="xs:string" name="PATH"/>
-                        </xs:sequence>
-                      </xs:complexType>
-                    </xs:element>
-                  </xs:sequence>
-                </xs:complexType>
-              </xs:element>
-              <xs:element name="Technical-drawings-Website">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element name="item" maxOccurs="unbounded" minOccurs="0">
-                      <xs:complexType>
-                        <xs:sequence>
-                          <xs:element type="xs:string" name="ID"/>
-                          <xs:element type="xs:string" name="PATH"/>
-                        </xs:sequence>
-                      </xs:complexType>
-                    </xs:element>
-                  </xs:sequence>
-                </xs:complexType>
-              </xs:element>
-              <xs:element type="xs:string" name="Gross-weight"/>
-              <xs:element type="xs:string" name="Net-weight"/>
-              <xs:element type="xs:string" name="Volume"/>
-              <xs:element type="xs:string" name="Features-overview-short-text"/>
-              <xs:element type="xs:string" name="Features-overview-long-text"/>
-              <xs:element type="xs:string" name="USPs-overview"/>
-              <xs:element name="USP">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element name="item" maxOccurs="unbounded" minOccurs="0">
-                      <xs:complexType>
-                        <xs:sequence>
-                          <xs:element type="xs:string" name="ID"/>
-                          <xs:element type="xs:string" name="USP-Title"/>
-                          <xs:element type="xs:string" name="USP-Long-Text"/>
-                          <xs:element type="xs:string" name="USP-Image-Website"/>
-                        </xs:sequence>
-                      </xs:complexType>
-                    </xs:element>
-                  </xs:sequence>
-                </xs:complexType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
+  <xs:element name="data" type="data"/>
+  <xs:complexType name="item">
+    <xs:sequence>
+      <xs:element type="xs:string" name="ID"/>
+      <xs:element type="xs:string" name="Created" minOccurs="0"/>
+      <xs:element type="xs:string" name="Changed" minOccurs="0"/>
+      <xs:element type="xs:string" name="ParentID" minOccurs="0"/>
+      <xs:element type="xs:string" name="PdmarticleID" minOccurs="0"/>
+      <xs:element type="xs:string" name="Label" minOccurs="0"/>
+      <xs:element type="Brand" name="Brand" minOccurs="0"/>
+      <xs:element type="xs:string" name="Approximate-Age-Text" minOccurs="0"/>
+      <xs:element type="xs:string" name="Commercial-product-name" minOccurs="0"/>
+      <xs:element type="xs:string" name="First-collection-year" minOccurs="0"/>
+      <xs:element type="xs:string" name="SEO-product-name" minOccurs="0"/>
+      <xs:element type="xs:string" name="SEO-Description" minOccurs="0"/>
+      <xs:element type="xs:string" name="Article-number" minOccurs="0"/>
+      <xs:element type="xs:string" name="ExternalKey" minOccurs="0"/>
+      <xs:element type="xs:string" name="sku" minOccurs="0"/>
+      <xs:element type="xs:string" name="Product-weight" minOccurs="0"/>
+      <xs:element type="Approximate-Age-Text-ext" name="Approximate-Age-Text-ext" minOccurs="0"/>
+      <xs:element type="Length-class-ext" name="Length-class-ext" minOccurs="0"/>
+      <xs:element type="xs:string" name="Intro-text-Consumer" minOccurs="0"/>
+      <xs:element type="xs:string" name="Long-description-2nd-part" minOccurs="0"/>
+      <xs:element type="xs:string" name="EAN13-barcode-Text" minOccurs="0"/>
+      <xs:element type="xs:string" name="ERP-full-product-name" minOccurs="0"/>
+      <xs:element type="Family" name="Family" minOccurs="0"/>
+      <xs:element type="Line" name="Line" minOccurs="0"/>
+      <xs:element type="Range" name="Range" minOccurs="0"/>
+      <xs:element type="Feature-images-Website" name="Feature-images-Website" minOccurs="0"/>
+      <xs:element type="Technical-drawings-Website" name="Technical-drawings-Website" minOccurs="0"/>
+      <xs:element type="xs:string" name="Gross-weight" minOccurs="0"/>
+      <xs:element type="xs:string" name="Net-weight" minOccurs="0"/>
+      <xs:element type="xs:string" name="Volume" minOccurs="0"/>
+      <xs:element type="xs:string" name="Features-overview-short-text" minOccurs="0"/>
+      <xs:element type="xs:string" name="Features-overview-long-text" minOccurs="0"/>
+      <xs:element type="xs:string" name="USPs-overview" minOccurs="0"/>
+      <xs:element type="USP" name="USP" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="labelItem">
+    <xs:sequence>
+      <xs:element type="xs:string" name="ID"/>
+      <xs:element type="xs:string" name="LABEL" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="imageItem">
+    <xs:sequence>
+      <xs:element type="xs:string" name="ID"/>
+      <xs:element type="xs:string" name="PATH" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="uspItem">
+    <xs:sequence>
+      <xs:element type="xs:string" name="ID"/>
+      <xs:element type="xs:string" name="USP-Title" minOccurs="0"/>
+      <xs:element type="xs:string" name="USP-Long-Text" minOccurs="0"/>
+      <xs:element type="xs:string" name="USP-Image-Website" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Brand">
+    <xs:sequence>
+      <xs:element type="labelItem" name="item"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Approximate-Age-Text-ext">
+    <xs:sequence>
+      <xs:element type="labelItem" name="item"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Length-class-ext">
+    <xs:sequence>
+      <xs:element type="labelItem" name="item"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Family">
+    <xs:sequence>
+      <xs:element type="labelItem" name="item"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Line">
+    <xs:sequence>
+      <xs:element type="labelItem" name="item"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Range">
+    <xs:sequence>
+      <xs:element type="labelItem" name="item"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Feature-images-Website">
+    <xs:sequence>
+      <xs:element type="imageItem" name="item" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Technical-drawings-Website">
+    <xs:sequence>
+      <xs:element type="imageItem" name="item" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="USP">
+    <xs:sequence>
+      <xs:element type="uspItem" name="item" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="data">
+    <xs:sequence>
+      <xs:element type="item" name="item" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
 </xs:schema>

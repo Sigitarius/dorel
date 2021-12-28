@@ -1,13 +1,16 @@
 
 package pl.sigitarius.dorel.model.pim;
 
+import javax.xml.bind.JAXBElement;
+import javax.xml.bind.annotation.XmlElementDecl;
 import javax.xml.bind.annotation.XmlRegistry;
+import javax.xml.namespace.QName;
 
 
 /**
  * This object contains factory methods for each 
  * Java content interface and Java element interface 
- * generated in the pl.sigitarius.dorel.model.pim package. 
+ * generated in the pl.sigitarius.dorel.model.pim2 package. 
  * <p>An ObjectFactory allows you to programatically 
  * construct new instances of the Java representation 
  * for XML content. The Java representation of XML 
@@ -21,9 +24,10 @@ import javax.xml.bind.annotation.XmlRegistry;
 @XmlRegistry
 public class ObjectFactory {
 
+    private final static QName _Data_QNAME = new QName("", "data");
 
     /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: pl.sigitarius.dorel.model.pim
+     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: pl.sigitarius.dorel.model.pim2
      * 
      */
     public ObjectFactory() {
@@ -38,155 +42,116 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Data.Item }
+     * Create an instance of {@link TechnicalDrawingsWebsite }
      * 
      */
-    public Data.Item createDataItem() {
-        return new Data.Item();
+    public TechnicalDrawingsWebsite createTechnicalDrawingsWebsite() {
+        return new TechnicalDrawingsWebsite();
     }
 
     /**
-     * Create an instance of {@link Data.Item.USP }
+     * Create an instance of {@link Item }
      * 
      */
-    public Data.Item.USP createDataItemUSP() {
-        return new Data.Item.USP();
+    public Item createItem() {
+        return new Item();
     }
 
     /**
-     * Create an instance of {@link Data.Item.TechnicalDrawingsWebsite }
+     * Create an instance of {@link LabelItem }
      * 
      */
-    public Data.Item.TechnicalDrawingsWebsite createDataItemTechnicalDrawingsWebsite() {
-        return new Data.Item.TechnicalDrawingsWebsite();
+    public LabelItem createLabelItem() {
+        return new LabelItem();
     }
 
     /**
-     * Create an instance of {@link Data.Item.FeatureImagesWebsite }
+     * Create an instance of {@link UspItem }
      * 
      */
-    public Data.Item.FeatureImagesWebsite createDataItemFeatureImagesWebsite() {
-        return new Data.Item.FeatureImagesWebsite();
+    public UspItem createUspItem() {
+        return new UspItem();
     }
 
     /**
-     * Create an instance of {@link Data.Item.Range }
+     * Create an instance of {@link LengthClassExt }
      * 
      */
-    public Data.Item.Range createDataItemRange() {
-        return new Data.Item.Range();
+    public LengthClassExt createLengthClassExt() {
+        return new LengthClassExt();
     }
 
     /**
-     * Create an instance of {@link Data.Item.Line }
+     * Create an instance of {@link Range }
      * 
      */
-    public Data.Item.Line createDataItemLine() {
-        return new Data.Item.Line();
+    public Range createRange() {
+        return new Range();
     }
 
     /**
-     * Create an instance of {@link Data.Item.Family }
+     * Create an instance of {@link ImageItem }
      * 
      */
-    public Data.Item.Family createDataItemFamily() {
-        return new Data.Item.Family();
+    public ImageItem createImageItem() {
+        return new ImageItem();
     }
 
     /**
-     * Create an instance of {@link Data.Item.LengthClassExt }
+     * Create an instance of {@link FeatureImagesWebsite }
      * 
      */
-    public Data.Item.LengthClassExt createDataItemLengthClassExt() {
-        return new Data.Item.LengthClassExt();
+    public FeatureImagesWebsite createFeatureImagesWebsite() {
+        return new FeatureImagesWebsite();
     }
 
     /**
-     * Create an instance of {@link Data.Item.ApproximateAgeTextExt }
+     * Create an instance of {@link Brand }
      * 
      */
-    public Data.Item.ApproximateAgeTextExt createDataItemApproximateAgeTextExt() {
-        return new Data.Item.ApproximateAgeTextExt();
+    public Brand createBrand() {
+        return new Brand();
     }
 
     /**
-     * Create an instance of {@link Data.Item.Brand }
+     * Create an instance of {@link Line }
      * 
      */
-    public Data.Item.Brand createDataItemBrand() {
-        return new Data.Item.Brand();
+    public Line createLine() {
+        return new Line();
     }
 
     /**
-     * Create an instance of {@link Data.Item.USP.USPItem }
+     * Create an instance of {@link ApproximateAgeTextExt }
      * 
      */
-    public Data.Item.USP.USPItem createDataItemUSPItem() {
-        return new Data.Item.USP.USPItem();
+    public ApproximateAgeTextExt createApproximateAgeTextExt() {
+        return new ApproximateAgeTextExt();
     }
 
     /**
-     * Create an instance of {@link Data.Item.TechnicalDrawingsWebsite.TechnicalDrawingsWebsiteItem }
+     * Create an instance of {@link USP }
      * 
      */
-    public Data.Item.TechnicalDrawingsWebsite.TechnicalDrawingsWebsiteItem createDataItemTechnicalDrawingsWebsiteItem() {
-        return new Data.Item.TechnicalDrawingsWebsite.TechnicalDrawingsWebsiteItem();
+    public USP createUSP() {
+        return new USP();
     }
 
     /**
-     * Create an instance of {@link Data.Item.FeatureImagesWebsite.FeatureImagesWebsiteItem }
+     * Create an instance of {@link Family }
      * 
      */
-    public Data.Item.FeatureImagesWebsite.FeatureImagesWebsiteItem createDataItemFeatureImagesWebsiteItem() {
-        return new Data.Item.FeatureImagesWebsite.FeatureImagesWebsiteItem();
+    public Family createFamily() {
+        return new Family();
     }
 
     /**
-     * Create an instance of {@link Data.Item.Range.RangeItem }
+     * Create an instance of {@link JAXBElement }{@code <}{@link Data }{@code >}}
      * 
      */
-    public Data.Item.Range.RangeItem createDataItemRangeItem() {
-        return new Data.Item.Range.RangeItem();
-    }
-
-    /**
-     * Create an instance of {@link Data.Item.Line.LineItem }
-     * 
-     */
-    public Data.Item.Line.LineItem createDataItemLineItem() {
-        return new Data.Item.Line.LineItem();
-    }
-
-    /**
-     * Create an instance of {@link Data.Item.Family.FamilyItem }
-     * 
-     */
-    public Data.Item.Family.FamilyItem createDataItemFamilyItem() {
-        return new Data.Item.Family.FamilyItem();
-    }
-
-    /**
-     * Create an instance of {@link Data.Item.LengthClassExt.LengthClassExtItem }
-     * 
-     */
-    public Data.Item.LengthClassExt.LengthClassExtItem createDataItemLengthClassExtItem() {
-        return new Data.Item.LengthClassExt.LengthClassExtItem();
-    }
-
-    /**
-     * Create an instance of {@link Data.Item.ApproximateAgeTextExt.ApproximateAgeTextExtItem }
-     * 
-     */
-    public Data.Item.ApproximateAgeTextExt.ApproximateAgeTextExtItem createDataItemApproximateAgeTextExtItem() {
-        return new Data.Item.ApproximateAgeTextExt.ApproximateAgeTextExtItem();
-    }
-
-    /**
-     * Create an instance of {@link Data.Item.Brand.BrandItem }
-     * 
-     */
-    public Data.Item.Brand.BrandItem createDataItemBrandItem() {
-        return new Data.Item.Brand.BrandItem();
+    @XmlElementDecl(namespace = "", name = "data")
+    public JAXBElement<Data> createData(Data value) {
+        return new JAXBElement<Data>(_Data_QNAME, Data.class, null, value);
     }
 
 }
