@@ -19,7 +19,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {
         Thread.setDefaultUncaughtExceptionHandler(Main::showError);
-        log.info("Uruchamiam aplikację");
+        log.info("Starting application");
 
         Parent parent;
         FXMLLoader fxmlLoader;
@@ -51,7 +51,7 @@ public class Main extends Application {
     private static void showError(Thread t, Throwable e) {
         log.error("***Default exception handler***");
         if (Platform.isFxApplicationThread()) {
-            log.error("Wystąpił błąd", e);
+            log.error("Error occurred", e);
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Błąd");
             alert.setHeaderText("Wystąpił błąd aplikacji");

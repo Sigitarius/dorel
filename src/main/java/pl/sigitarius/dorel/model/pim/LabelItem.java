@@ -35,7 +35,7 @@ import javax.xml.bind.annotation.XmlType;
 public class LabelItem {
 
     @XmlElement(name = "ID", required = true)
-    protected String id;
+    protected int id;
     @XmlElement(name = "LABEL")
     protected String label;
 
@@ -47,7 +47,7 @@ public class LabelItem {
      *     {@link String }
      *     
      */
-    public String getID() {
+    public int getID() {
         return id;
     }
 
@@ -59,7 +59,7 @@ public class LabelItem {
      *     {@link String }
      *     
      */
-    public void setID(String value) {
+    public void setID(int value) {
         this.id = value;
     }
 

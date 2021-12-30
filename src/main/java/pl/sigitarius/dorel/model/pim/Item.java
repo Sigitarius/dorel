@@ -91,6 +91,8 @@ import java.time.LocalDateTime;
     "line",
     "range",
     "featureImagesWebsite",
+    "mainCollectionImageWebsite",
+    "mainProductImageWebsite",
     "technicalDrawingsWebsite",
     "grossWeight",
     "netWeight",
@@ -155,6 +157,10 @@ public class Item {
     protected Range range;
     @XmlElement(name = "Feature-images-Website")
     protected FeatureImagesWebsite featureImagesWebsite;
+    @XmlElement(name = "Main-collection-image-website")
+    protected String mainCollectionImageWebsite;
+    @XmlElement(name = "Main-product-image-website")
+    protected String mainProductImageWebsite;
     @XmlElement(name = "Technical-drawings-Website")
     protected TechnicalDrawingsWebsite technicalDrawingsWebsite;
     @XmlElement(name = "Gross-weight")
@@ -795,6 +801,57 @@ public class Item {
     public void setFeatureImagesWebsite(FeatureImagesWebsite value) {
         this.featureImagesWebsite = value;
     }
+
+
+    /**
+     * Gets the value of the mainCollectionImageWebsite property.
+     *
+     * @return
+     *     possible object is
+     *     {@link String }
+     *
+     */
+    public String getMainCollectionImageWebsite() {
+        return mainCollectionImageWebsite;
+    }
+
+    /**
+     * Sets the value of the mainCollectionImageWebsite property.
+     *
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *
+     */
+    public void setMainCollectionImageWebsite(String value) {
+        this.mainCollectionImageWebsite = value;
+    }
+
+
+    /**
+     * Gets the value of the mainProductImageWebsite property.
+     *
+     * @return
+     *     possible object is
+     *     {@link String }
+     *
+     */
+    public String getMainProductImageWebsite() {
+        return mainProductImageWebsite;
+    }
+
+    /**
+     * Sets the value of the mainProductImageWebsite property.
+     *
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *
+     */
+    public void setMainProductImageWebsite(String value) {
+        this.mainProductImageWebsite = value;
+    }
+
 
     /**
      * Gets the value of the technicalDrawingsWebsite property.

@@ -29,7 +29,7 @@ public class FeaturesOverviewDao {
 			pstmt.setLong(1, item.getArticleNumber());
 			pstmt.setString(2, item.getFeaturesOverviewShortText());
 			pstmt.setString(3, item.getFeaturesOverviewLongText());
-			log.info("Adding Features overview for " + item.getArticleNumber());
+			log.info("Adding FeatureOverview for " + item.getArticleNumber());
 
 			pstmt.executeUpdate();
 			pstmt.close();

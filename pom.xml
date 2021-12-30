@@ -6,21 +6,21 @@
 
   <groupId>pl.sigitarius</groupId>
   <artifactId>dorel</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>1.1</version>
 
-  <name>dorel_listy_plac</name>
+  <name>dorel</name>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
-    <lombok.version>1.18.20</lombok.version>
     <slf4j.version>1.7.32</slf4j.version>
-    <log4j2.version>2.14.1</log4j2.version>
-    <junit.version>5.7.2</junit.version>
-    <jasypt.version>1.9.2</jasypt.version>
+    <log4j2.version>2.17.0</log4j2.version>
+    <junit.version>5.8.2</junit.version>
+    <jasypt.version>1.9.3</jasypt.version>
     <mssql-jdbc.version>9.4.1.jre8</mssql-jdbc.version>
     <lombok.version>1.18.22</lombok.version>
+    <commons-io.version>2.11.0</commons-io.version>
   </properties>
 
   <dependencies>
@@ -73,10 +73,9 @@
       <version>${mssql-jdbc.version}</version>
     </dependency>
     <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-      <version>${lombok.version}</version>
-      <scope>provided</scope>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>${commons-io.version}</version>
     </dependency>
   </dependencies>
 
@@ -99,6 +98,10 @@
           <configuration>
             <source>1.8</source>
             <target>1.8</target>
+            <fork>true</fork>
+            <compilerArgs>
+              <arg>-XDignore.symbol.file</arg>
+            </compilerArgs>
           </configuration>
         </plugin>
         <plugin>
@@ -140,7 +143,7 @@
           <artifactId>javafx-maven-plugin</artifactId>
           <version>8.8.3</version>
           <configuration>
-            <mainClass>application.Main</mainClass>
+            <mainClass>pl.sigitarius.dorel.Main</mainClass>
           </configuration>
         </plugin>
       </plugins>

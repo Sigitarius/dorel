@@ -39,7 +39,7 @@ import javax.xml.bind.annotation.XmlType;
 public class UspItem {
 
     @XmlElement(name = "ID", required = true)
-    protected String id;
+    protected int id;
     @XmlElement(name = "USP-Title")
     protected String uspTitle;
     @XmlElement(name = "USP-Long-Text")
@@ -55,7 +55,7 @@ public class UspItem {
      *     {@link String }
      *     
      */
-    public String getID() {
+    public int getID() {
         return id;
     }
 
@@ -67,7 +67,7 @@ public class UspItem {
      *     {@link String }
      *     
      */
-    public void setID(String value) {
+    public void setID(int value) {
         this.id = value;
     }
 

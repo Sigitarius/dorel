@@ -1,8 +1,8 @@
 package pl.sigitarius.dorel.model.dao;
 
 import lombok.extern.slf4j.Slf4j;
-import pl.sigitarius.dorel.model.pim.ImageItem;
 import pl.sigitarius.dorel.model.pim.Item;
+import pl.sigitarius.dorel.model.pim.UspItem;
 import pl.sigitarius.dorel.utils.MsSqlConnection;
 
 import java.sql.Connection;
@@ -12,34 +12,36 @@ import java.sql.SQLException;
 import java.util.List;
 
 @Slf4j
-public class WebsiteImagesDao {
+public class SellingPointsDao {
 
-	private static final String INSERT_INTO_WEBSITE_IMAGES = "INSERT INTO Website_images VALUES(?, ?, ?)";
-	private static final String DELETE_WEBSITE_IMAGES = "DELETE Website_images WHERE article_number = ?";
+	private static final String INSERT_INTO_SELLING_POINTS = "INSERT INTO Selling_points VALUES(?, ?, ?, ?, ?)";
+	private static final String DELETE_SELLING_POINTS = "DELETE Selling_points WHERE article_number = ?";
 
 	private MsSqlConnection connection;
 
-	public WebsiteImagesDao(MsSqlConnection connection) {
+	public SellingPointsDao(MsSqlConnection connection) {
 		this.connection = connection;
 	}
 
 
-	public void insertWebsiteImages(Item item) {
+	public void insertSellingPoints(Item item) {
 		try (Connection con = DriverManager.getConnection(connection.getURL())) {
-			PreparedStatement pstmt = con.prepareStatement(INSERT_INTO_WEBSITE_IMAGES);
+			PreparedStatement pstmt = con.prepareStatement(INSERT_INTO_SELLING_POINTS);
 
-			List<ImageItem> items = item.getFeatureImagesWebsite().getItem();
-			for(ImageItem imageItem : items){
+			List<UspItem> items = item.getUSP().getItem();
+			for (UspItem imageItem : items) {
 				pstmt.setLong(1, item.getArticleNumber());
 				pstmt.setInt(2, imageItem.getID());
-				pstmt.setString(3, imageItem.getPATH());
+				pstmt.setString(3, imageItem.getUSPTitle());
+				pstmt.setString(4, imageItem.getUSPLongText());
+				pstmt.setString(5, imageItem.getUSPImageWebsite());
 				pstmt.addBatch();
 			}
 
 			pstmt.executeBatch();
 			pstmt.close();
 		} catch (SQLException e) {
-			log.error("Failed to save WebsiteImages to DB", e);
+			log.error("Failed to save SellingPoints to DB", e);
 			throw new RuntimeException(e);
 		}
 	}
@@ -47,15 +49,15 @@ public class WebsiteImagesDao {
 
 	public void deleteByArticleNumber(long articleNumber) {
 		try (Connection con = DriverManager.getConnection(connection.getURL())) {
-			PreparedStatement pstmt = con.prepareStatement(DELETE_WEBSITE_IMAGES);
+			PreparedStatement pstmt = con.prepareStatement(DELETE_SELLING_POINTS);
 			pstmt.setLong(1, articleNumber);
 			int deleted = pstmt.executeUpdate();
 			if(deleted > 0){
-				log.info("Remove WebsiteImages - article_number " + articleNumber);
+				log.info("Remove SellingPoints - article_number " + articleNumber);
 			}
 			pstmt.close();
 		} catch (SQLException e) {
-			log.error("Failed to delete WebsiteImages from DB", e);
+			log.error("Failed to delete SellingPoints from DB", e);
 			throw new RuntimeException(e);
 		}
 	}
