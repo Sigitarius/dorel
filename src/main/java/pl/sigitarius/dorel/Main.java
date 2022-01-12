@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import lombok.extern.slf4j.Slf4j;
 
@@ -37,6 +38,7 @@ public class Main extends Application {
         stage.setTitle("Dorel");
         stage.setScene(scene);
         stage.setOnCloseRequest(s -> System.exit(0));
+        stage.getIcons().add(new Image(Main.class.getResourceAsStream("icon.png")));
         stage.show();
 
         SplashStage splash = new SplashStage(stage);

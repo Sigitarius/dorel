@@ -1,5 +1,6 @@
 package pl.sigitarius.dorel.model.dao;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import pl.sigitarius.dorel.model.pim.Item;
 import pl.sigitarius.dorel.model.pim.UspItem;
@@ -12,17 +13,13 @@ import java.sql.SQLException;
 import java.util.List;
 
 @Slf4j
+@RequiredArgsConstructor
 public class SellingPointsDao {
 
 	private static final String INSERT_INTO_SELLING_POINTS = "INSERT INTO Selling_points VALUES(?, ?, ?, ?, ?)";
 	private static final String DELETE_SELLING_POINTS = "DELETE Selling_points WHERE article_number = ?";
 
-	private MsSqlConnection connection;
-
-	public SellingPointsDao(MsSqlConnection connection) {
-		this.connection = connection;
-	}
-
+	private final MsSqlConnection connection;
 
 	public void insertSellingPoints(Item item) {
 		try (Connection con = DriverManager.getConnection(connection.getURL())) {

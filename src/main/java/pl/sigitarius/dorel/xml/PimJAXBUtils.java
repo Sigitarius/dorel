@@ -1,6 +1,6 @@
 package pl.sigitarius.dorel.xml;
 
-import com.sun.xml.internal.bind.marshaller.CharacterEscapeHandler;
+import com.sun.xml.bind.marshaller.CharacterEscapeHandler;
 import lombok.extern.slf4j.Slf4j;
 import pl.sigitarius.dorel.model.pim.Data;
 import pl.sigitarius.dorel.model.pim.ObjectFactory;

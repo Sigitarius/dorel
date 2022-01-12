@@ -19,7 +19,7 @@ import java.util.List;
 public class FeatureImageWebsiteDao {
 
     private static final String SELECT_ALL_WEBSITE_IMAGES = "SELECT * FROM Feature_images_website";
-    private static final String INSERT_INTO_WEBSITE_IMAGES = "INSERT INTO Feature_images_website VALUES(?, ?, ?)";
+    private static final String INSERT_INTO_WEBSITE_IMAGES = "INSERT INTO Feature_images_website (article_number, image_id, path) VALUES (?, ?, ?)";
     private static final String DELETE_WEBSITE_IMAGES = "DELETE Feature_images_website WHERE article_number = ?";
 
     private MsSqlConnection connection;
@@ -37,7 +37,7 @@ public class FeatureImageWebsiteDao {
 
             while(rs.next()){
                 images.add(new FeatureImageWebsite(rs.getLong("article_number"),
-                        rs.getInt("id"),
+                        rs.getInt("image_id"),
                         rs.getString("path")));
             }
 

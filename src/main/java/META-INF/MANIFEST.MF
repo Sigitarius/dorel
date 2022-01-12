@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Main-Class: pl.sigitarius.dorel.Main
+Class-Path: lib/commons-io-2.11.0.jar lib/FastInfoset-1.2.16.jar lib/ist
+ ack-commons-runtime-3.0.8.jar lib/jakarta.activation-api-1.2.1.jar lib/
+ jakarta.xml.bind-api-2.3.2.jar lib/jasypt-1.9.3.jar lib/jaxb-runtime-2.
+ 3.2.jar lib/log4j-api-2.17.0.jar lib/log4j-core-2.17.0.jar lib/log4j-sl
+ f4j-impl-2.17.0.jar lib/mssql-jdbc-9.4.1.jre8.jar lib/slf4j-api-1.7.32.
+ jar lib/stax-ex-1.8.1.jar lib/txw2-2.3.2.jar
+
