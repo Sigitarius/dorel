@@ -1,6 +1,5 @@
 package pl.sigitarius.dorel;
 
-import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -38,6 +37,7 @@ import pl.sigitarius.dorel.utils.RetentionFileChooser;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 @Slf4j
@@ -94,7 +94,7 @@ public class MainController implements Initializable {
         progress.setVisible(true);
 
         if (xmlFile != null) {
-            Task<Void> task = new LoadObjectsTask(xmlFile, progress, splash, window, defaultConnection);
+            LoadObjectsTask task = new LoadObjectsTask(xmlFile, progress, splash, window, defaultConnection);
             splash.show();
             progress.progressProperty().bind(task.progressProperty());
             progressTt.textProperty().bind(task.messageProperty());
@@ -113,7 +113,7 @@ public class MainController implements Initializable {
         progress.setVisible(true);
 
         if (downloadDirectory != null) {
-            Task<Void> task = new DownloadImagesTask(downloadDirectory, progress, splash, window, defaultConnection);
+            DownloadImagesTask task = new DownloadImagesTask(downloadDirectory, progress, splash, window, defaultConnection);
             splash.show();
             progress.progressProperty().bind(task.progressProperty());
             progressTt.textProperty().bind(task.messageProperty());
@@ -128,7 +128,7 @@ public class MainController implements Initializable {
         File xmlFile = RetentionFileChooser.showOpenDialog(window, "Wskaż plik xml", RetentionFileChooser.FilterMode.XML_FILES);
         File file = RetentionFileChooser.showSaveDialog(window, "Wskaż gdzie zapisać plik", RetentionFileChooser.FilterMode.XML_FILES);
         if (xmlFile != null) {
-            Task<Void> task = new LoadPayroll(xmlFile, file, splash, window);
+            LoadPayroll task = new LoadPayroll(xmlFile, file, splash, window);
             splash.show();
             new Thread(task).start();
         }
@@ -136,18 +136,73 @@ public class MainController implements Initializable {
 
     @FXML
     void showAboutTheProducts(ActionEvent event) throws IOException {
-        BorderPane pane = FXMLLoader.load(getClass().getResource("db/AboutTheProducts.fxml"));
+        BorderPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("db/AboutTheProducts.fxml")));
         setPane(pane);
         log.info("Showing About the products table");
     }
 
     @FXML
     void showAttribute(ActionEvent event) throws IOException {
-        BorderPane pane = FXMLLoader.load(getClass().getResource("db/Attribute.fxml"));
+        BorderPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("db/Attribute.fxml")));
         setPane(pane);
         log.info("Showing Attribute table");
     }
 
+    @FXML
+    void showEANPurePlayer(ActionEvent event) throws IOException {
+        BorderPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("db/EANPurePlayer.fxml")));
+        setPane(pane);
+        log.info("Showing EAN PurePlayer table");
+    }
+
+    @FXML
+    void showEANSpecializedStore(ActionEvent event) throws IOException {
+        BorderPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("db/EANSpecializedStore.fxml")));
+        setPane(pane);
+        log.info("Showing EAN SpecializedStore table");
+    }
+
+    @FXML
+    void showFeatureImagesWebsite(ActionEvent event) throws IOException {
+        BorderPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("db/FeatureImagesWebsite.fxml")));
+        setPane(pane);
+        log.info("Showing Feature images website table");
+    }
+
+    @FXML
+    void showFeaturesOverview(ActionEvent event) throws IOException {
+        BorderPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("db/FeaturesOverview.fxml")));
+        setPane(pane);
+        log.info("Showing Features overview table");
+    }
+
+    @FXML
+    void showMainCollectionImageWebsite(ActionEvent event) throws IOException {
+        BorderPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("db/MainCollectionImageWebsite.fxml")));
+        setPane(pane);
+        log.info("Showing Main collection image website table");
+    }
+
+    @FXML
+    void showMainProductImageWebsite(ActionEvent event) throws IOException {
+        BorderPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("db/MainProductImageWebsite.fxml")));
+        setPane(pane);
+        log.info("Showing Main product image website table");
+    }
+
+    @FXML
+    void showPim(ActionEvent event) throws IOException {
+        BorderPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("db/Pim.fxml")));
+        setPane(pane);
+        log.info("Showing Pim table");
+    }
+
+    @FXML
+    void showSellingPoints(ActionEvent event) throws IOException {
+        BorderPane pane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("db/SellingPoints.fxml")));
+        setPane(pane);
+        log.info("Showing Selling points table");
+    }
 
 
     private void setPane(BorderPane pane) {

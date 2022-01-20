@@ -17,41 +17,48 @@ public class MsSqlConnection {
 
 	private String connName;
 	private String host;
-	private int port;
-	private String database;
-	private String username;
-	private String password;
+    private int port;
+    private String database;
+    private String username;
+    private String password;
 
-	Connection con;
+    Connection con;
 
-	public MsSqlConnection() {
-	}
+    public MsSqlConnection() {
+    }
 
-	public MsSqlConnection(String connName, String host, int port, String database, String username, String password) {
-		this.connName = connName;
-		this.host = host;
-		this.port = port;
-		this.database = database;
-		this.username = username;
-		this.password = password;
-	}
+    public MsSqlConnection(String connName, String host, int port, String database, String username, String password) {
+        this.connName = connName;
+        this.host = host;
+        this.port = port;
+        this.database = database;
+        this.username = username;
+        this.password = password;
+    }
 
-	public void connect() {
-		con = getConnection();
-	}
+    public static MsSqlConnection getDefaultConnection() {
+        Configuration conf = new Configuration();
+        return new MsSqlConnection("default", conf.get("default.host"),
+                Integer.parseInt(conf.get("default.port")), conf.get("default.database"), conf.get("default.username"),
+                conf.get("default.password"));
+    }
 
-	public String getURL() {
-		return CONN_STRING + host + ":" + port + ";databaseName=" + database + ";user=" + username + ";password="
-				+ password;
-	}
+    public void connect() {
+        con = getConnection();
+    }
 
-	public boolean testConnection() throws SQLException {
-		boolean isValid = false;
-		try (Connection con = DriverManager.getConnection(getURL())) {
-			isValid = con.isValid(5);
-		}
-		return isValid;
-	}
+    public String getURL() {
+        return CONN_STRING + host + ":" + port + ";databaseName=" + database + ";user=" + username + ";password="
+                + password;
+    }
+
+    public boolean testConnection() throws SQLException {
+        boolean isValid = false;
+        try (Connection con = DriverManager.getConnection(getURL())) {
+            isValid = con.isValid(5);
+        }
+        return isValid;
+    }
 
 
 	public Connection getConnection() {

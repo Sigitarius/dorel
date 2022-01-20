@@ -16,70 +16,76 @@
 <?import pl.sigitarius.dorel.utils.PersistentButtonToggleGroup?>
 <BorderPane prefHeight="691.0" prefWidth="979.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.sigitarius.dorel.MainController">
    <top>
-      <HBox BorderPane.alignment="CENTER">
-         <children>
-            <MenuBar>
-              <menus>
-                <Menu mnemonicParsing="false" text="Narzędzia">
-                  <items>
-                    <MenuItem mnemonicParsing="false" onAction="#defaultConnection" text="Połączenie DB" />
-                  </items>
-                </Menu>
-                  <Menu mnemonicParsing="false" text="Akcje">
-                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#load" text="Wczytaj XML" />
-                        <MenuItem mnemonicParsing="false" onAction="#downloadImages" text="Ściągnij obrazki na dysk" />
-                     </items>
-                  </Menu>
-              </menus>
-            </MenuBar>
-             <AnchorPane HBox.hgrow="ALWAYS">
-                 <children>
-                     <Text layoutX="794.0" layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="wersja ${project.version}" AnchorPane.rightAnchor="5.0" />
-                     <Label fx:id="dbInfoLbl" layoutX="16.0" layoutY="4.0" />
-                 </children>
-             </AnchorPane>
-         </children>
-      </HBox>
+       <HBox BorderPane.alignment="CENTER">
+           <MenuBar>
+               <Menu mnemonicParsing="false" text="Narzędzia">
+                   <MenuItem mnemonicParsing="false" onAction="#defaultConnection" text="Połączenie DB"/>
+               </Menu>
+               <Menu mnemonicParsing="false" text="Akcje">
+                   <MenuItem mnemonicParsing="false" onAction="#load" text="Wczytaj XML"/>
+                   <MenuItem mnemonicParsing="false" onAction="#downloadImages"
+                             text="Ściągnij obrazki na dysk"/>
+               </Menu>
+           </MenuBar>
+           <AnchorPane HBox.hgrow="ALWAYS">
+               <Text layoutX="794.0" layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                     text="wersja ${project.version}" AnchorPane.rightAnchor="5.0"/>
+               <Label fx:id="dbInfoLbl" layoutX="16.0" layoutY="4.0"/>
+           </AnchorPane>
+       </HBox>
    </top>
    <bottom>
       <ButtonBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <buttons>
-          <Button mnemonicParsing="false" prefHeight="25.0" text="Zapisz">
-               <padding>
-                  <Insets left="10.0" right="10.0" />
-               </padding></Button>
+            <Button mnemonicParsing="false" prefHeight="25.0" text="Zapisz">
+                <padding>
+                    <Insets left="10.0" right="10.0"/>
+                </padding>
+            </Button>
         </buttons>
-         <padding>
-            <Insets right="10.0" />
-         </padding>
+          <padding>
+              <Insets right="10.0"/>
+          </padding>
       </ButtonBar>
    </bottom>
-   <left>
-      <VBox prefHeight="666.0" prefWidth="150.0" BorderPane.alignment="CENTER">
-         <children>
-            <ToggleButton mnemonicParsing="false" onAction="#showAboutTheProducts" prefHeight="50.0" prefWidth="150.0" selected="true" stylesheets="@../../../css/menu.css" text="About the products">
-               <toggleGroup>
-                  <PersistentButtonToggleGroup fx:id="menu" />
-               </toggleGroup>
+    <left>
+        <VBox prefHeight="666.0" prefWidth="150.0" BorderPane.alignment="CENTER">
+            <ToggleButton mnemonicParsing="false" onAction="#showAboutTheProducts" prefHeight="50.0" prefWidth="150.0"
+                          selected="true" stylesheets="@../../../css/menu.css" text="About the products">
+                <toggleGroup>
+                    <PersistentButtonToggleGroup fx:id="menu"/>
+                </toggleGroup>
             </ToggleButton>
-            <ToggleButton mnemonicParsing="false" onAction="#showAttribute" prefHeight="50.0" prefWidth="150.0" stylesheets="@../../../css/menu.css" text="Attribute" toggleGroup="$menu" />
-            <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" stylesheets="@../../../css/menu.css" text="EAN PurePlayer" toggleGroup="$menu" />
-            <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" stylesheets="@../../../css/menu.css" text="EAN SpecializedStore" toggleGroup="$menu" />
-            <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" stylesheets="@../../../css/menu.css" text="Feature images website" toggleGroup="$menu" />
-            <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" stylesheets="@../../../css/menu.css" text="Features overview" toggleGroup="$menu" />
-            <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" stylesheets="@../../../css/menu.css" text="Main collection image website" textAlignment="CENTER" toggleGroup="$menu" wrapText="true" />
-            <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" stylesheets="@../../../css/menu.css" text="Main product image website" textAlignment="CENTER" toggleGroup="$menu" wrapText="true" />
-            <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" stylesheets="@../../../css/menu.css" text="Pim" textAlignment="CENTER" toggleGroup="$menu" wrapText="true" />
-            <ToggleButton mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" stylesheets="@../../../css/menu.css" text="Selling points" textAlignment="CENTER" toggleGroup="$menu" wrapText="true" />
-         </children>
-      </VBox>
-   </left>
-   <center>
-      <AnchorPane fx:id="centerPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-       <children>
-           <fx:include fx:id="aboutTheProducts" source="db/AboutTheProducts.fxml" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-       </children>
-   </AnchorPane>
-   </center>
+            <ToggleButton mnemonicParsing="false" onAction="#showAttribute" prefHeight="50.0" prefWidth="150.0"
+                          stylesheets="@../../../css/menu.css" text="Attribute" toggleGroup="$menu"/>
+            <ToggleButton mnemonicParsing="false" onAction="#showEANPurePlayer" prefHeight="50.0" prefWidth="150.0"
+                          stylesheets="@../../../css/menu.css" text="EAN PurePlayer" toggleGroup="$menu"/>
+            <ToggleButton mnemonicParsing="false" onAction="#showEANSpecializedStore" prefHeight="50.0"
+                          prefWidth="150.0" stylesheets="@../../../css/menu.css" text="EAN SpecializedStore"
+                          toggleGroup="$menu"/>
+            <ToggleButton mnemonicParsing="false" onAction="#showFeatureImagesWebsite" prefHeight="50.0"
+                          prefWidth="150.0" stylesheets="@../../../css/menu.css" text="Feature images website"
+                          toggleGroup="$menu"/>
+            <ToggleButton mnemonicParsing="false" onAction="#showFeaturesOverview" prefHeight="50.0" prefWidth="150.0"
+                          stylesheets="@../../../css/menu.css" text="Features overview" toggleGroup="$menu"/>
+            <ToggleButton mnemonicParsing="false" onAction="#showMainCollectionImageWebsite" prefHeight="50.0"
+                          prefWidth="150.0" stylesheets="@../../../css/menu.css" text="Main collection image website"
+                          textAlignment="CENTER" toggleGroup="$menu" wrapText="true"/>
+            <ToggleButton mnemonicParsing="false" onAction="#showMainProductImageWebsite" prefHeight="50.0"
+                          prefWidth="150.0" stylesheets="@../../../css/menu.css" text="Main product image website"
+                          textAlignment="CENTER" toggleGroup="$menu" wrapText="true"/>
+            <ToggleButton mnemonicParsing="false" onAction="#showPim" prefHeight="50.0" prefWidth="150.0"
+                          stylesheets="@../../../css/menu.css" text="Pim" textAlignment="CENTER" toggleGroup="$menu"
+                          wrapText="true"/>
+            <ToggleButton mnemonicParsing="false" onAction="#showSellingPoints" prefHeight="50.0" prefWidth="150.0"
+                          stylesheets="@../../../css/menu.css" text="Selling points" textAlignment="CENTER"
+                          toggleGroup="$menu" wrapText="true"/>
+        </VBox>
+    </left>
+    <center>
+        <AnchorPane fx:id="centerPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <fx:include fx:id="aboutTheProducts" source="db/AboutTheProducts.fxml" AnchorPane.bottomAnchor="0.0"
+                        AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"/>
+        </AnchorPane>
+    </center>
 </BorderPane>

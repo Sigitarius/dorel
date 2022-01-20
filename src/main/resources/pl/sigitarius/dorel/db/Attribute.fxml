@@ -3,27 +3,28 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.BorderPane?>
-<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.sigitarius.dorel.db.AboutTheProductsController">
-   <center>
-      <TableView prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-        <columns>
-          <TableColumn prefWidth="75.0" text="article_number" />
-          <TableColumn prefWidth="75.0" text="brand_id" />
-            <TableColumn prefWidth="75.0" text="brand_label" />
-            <TableColumn prefWidth="75.0" text="family_id" />
-            <TableColumn prefWidth="75.0" text="family_label" />
-            <TableColumn prefWidth="75.0" text="line_id" />
-            <TableColumn prefWidth="75.0" text="line_label" />
-            <TableColumn prefWidth="75.0" text="range_id" />
-            <TableColumn prefWidth="75.0" text="range_label" />
-            <TableColumn prefWidth="75.0" text="approximate_age_text_ext_id" />
-            <TableColumn prefWidth="75.0" text="approximate_age_text_ext_label" />
-            <TableColumn prefWidth="75.0" text="length_class_ext_id" />
-            <TableColumn prefWidth="75.0" text="length_class_ext_label" />
-        </columns>
-         <columnResizePolicy>
-            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-         </columnResizePolicy>
-      </TableView>
-   </center>
+<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="pl.sigitarius.dorel.db.AttributeController">
+    <center>
+        <TableView fx:id="attributeTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn fx:id="articleNumberCol" prefWidth="75.0" text="article_number"/>
+                <TableColumn fx:id="brandIdCol" prefWidth="75.0" text="brand_id"/>
+                <TableColumn fx:id="brandLabelCol" prefWidth="75.0" text="brand_label"/>
+                <TableColumn fx:id="familyIdCol" prefWidth="75.0" text="family_id"/>
+                <TableColumn fx:id="familyabelCol" prefWidth="75.0" text="family_label"/>
+                <TableColumn fx:id="lineIdCol" prefWidth="75.0" text="line_id"/>
+                <TableColumn fx:id="lineLabelCol" prefWidth="75.0" text="line_label"/>
+                <TableColumn fx:id="rangeIdCol" prefWidth="75.0" text="range_id"/>
+                <TableColumn fx:id="rangeLabelCol" prefWidth="75.0" text="range_label"/>
+                <TableColumn fx:id="aproxAgeIdCol" prefWidth="75.0" text="approximate_age_text_ext_id"/>
+                <TableColumn fx:id="aproxAgeLabelCol" prefWidth="75.0" text="approximate_age_text_ext_label"/>
+                <TableColumn fx:id="lengthClassIdCol" prefWidth="75.0" text="length_class_ext_id"/>
+                <TableColumn fx:id="lengthClassLabelCol" prefWidth="75.0" text="length_class_ext_label"/>
+            </columns>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+            </columnResizePolicy>
+        </TableView>
+    </center>
 </BorderPane>

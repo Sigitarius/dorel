@@ -69,7 +69,7 @@ public class LoadObjectsTask extends Task {
             log.info("Getting objects from XML file");
             Data data = PimJAXBUtils.getDataFromFile(xmlFile);
 
-            Set<String> eansStrings = eans.stream().map(Ean::getEan).collect(Collectors.toSet());
+            Set<String> eansStrings = eans.stream().map(Ean::getValue).collect(Collectors.toSet());
 
             Supplier<Stream<Item>> itemsSup = () -> data.getItem().stream()
                     .filter(i -> eansStrings.contains(i.getEAN13BarcodeText()));

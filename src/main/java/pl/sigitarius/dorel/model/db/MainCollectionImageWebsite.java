@@ -9,6 +9,6 @@ import lombok.ToString;
 @ToString
 public class MainCollectionImageWebsite {
 
-    private long article_number;
+    private long articleNumber;
     private String path;
 }

@@ -9,5 +9,5 @@ import lombok.ToString;
 @ToString
 public class Ean {
 
-    private String ean;
+    private String value;
 }

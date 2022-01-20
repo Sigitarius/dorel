@@ -7,8 +7,12 @@ import lombok.ToString;
 @Data
 @AllArgsConstructor
 @ToString
-public class MainProductImageWebsite {
+public class SellingPoints {
 
     private long articleNumber;
-    private String path;
+    private int uspId;
+    private String uspTitle;
+    private String uspLongText;
+    private String uspImageWebsite;
+
 }

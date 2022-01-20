@@ -20,7 +20,7 @@ public class Pim {
     private String firstCollectionYear;
     private String seoProductName;
     private String seoDescription;
-    private long ArticleNumber;
+    private long articleNumber;
     private String externalKey;
     private String sku;
     private String ean13BarcodeText;

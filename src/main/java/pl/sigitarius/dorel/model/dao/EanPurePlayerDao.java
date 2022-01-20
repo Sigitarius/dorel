@@ -1,5 +1,6 @@
 package pl.sigitarius.dorel.model.dao;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import pl.sigitarius.dorel.model.db.Ean;
 import pl.sigitarius.dorel.utils.MsSqlConnection;
@@ -13,17 +14,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Slf4j
+@RequiredArgsConstructor
 public class EanPurePlayerDao {
 
 	private static final String SELECT_FROM_EAN_PURE_PLAYER = "SELECT EAN FROM EAN_PurePlayer";
 
-	private MsSqlConnection connection;
-
-	private Connection con;
-
-	public EanPurePlayerDao(MsSqlConnection connection) {
-		this.connection = connection;
-	}
+    private final MsSqlConnection connection;
 
 	public Set<Ean> getEans() {
 		Set<Ean> eans = new HashSet<>();

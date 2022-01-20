@@ -1,35 +1,57 @@
 package pl.sigitarius.dorel.model.dao;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import pl.sigitarius.dorel.model.db.AboutTheProducts;
 import pl.sigitarius.dorel.model.pim.Item;
 import pl.sigitarius.dorel.utils.MsSqlConnection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 @Slf4j
+@RequiredArgsConstructor
 public class AboutTheProductsDao {
 
-	private static final String INSERT_INTO_ABOUT_THE_PRODUCTS = "INSERT INTO About_the_products VALUES(?, ?, ?)";
-	private static final String DELETE_ABOUT_THE_PRODUCTS = "DELETE About_the_products WHERE article_number = ?";
+    private static final String SELECT_FROM_ABOUT_THE_PRODUCTS = "SELECT * FROM About_the_products";
+    private static final String INSERT_INTO_ABOUT_THE_PRODUCTS = "INSERT INTO About_the_products VALUES(?, ?, ?)";
+    private static final String DELETE_ABOUT_THE_PRODUCTS = "DELETE About_the_products WHERE article_number = ?";
 
-	private MsSqlConnection connection;
+    private final MsSqlConnection connection;
 
-	public AboutTheProductsDao(MsSqlConnection connection) {
-		this.connection = connection;
-	}
+    public List<AboutTheProducts> getAboutTheProductsItems() {
+        List<AboutTheProducts> items = new ArrayList<>();
+        try (Connection con = DriverManager.getConnection(connection.getURL())) {
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(SELECT_FROM_ABOUT_THE_PRODUCTS);
+            while (rs.next()) {
+                items.add(new AboutTheProducts(
+                        rs.getLong("article_number"),
+                        rs.getString("intro_text_consumer"),
+                        rs.getString("long_description_2nd_part")
+                ));
+            }
+        } catch (SQLException e) {
+            log.error("Failed to retrieve AboutTheProducts items from the database", e);
+            throw new RuntimeException(e);
+        }
+        return items;
+    }
 
+    public void insertAboutTheProducts(Item item) {
+        try (Connection con = DriverManager.getConnection(connection.getURL())) {
+            PreparedStatement pstmt = con.prepareStatement(INSERT_INTO_ABOUT_THE_PRODUCTS);
 
-	public void insertAboutTheProducts(Item item) {
-		try (Connection con = DriverManager.getConnection(connection.getURL())) {
-			PreparedStatement pstmt = con.prepareStatement(INSERT_INTO_ABOUT_THE_PRODUCTS);
-
-			pstmt.setLong(1, item.getArticleNumber());
-			pstmt.setString(2, item.getIntroTextConsumer());
-			pstmt.setString(3, item.getLongDescription2NdPart());
-			log.info("Adding About the products for " + item.getArticleNumber());
+            pstmt.setLong(1, item.getArticleNumber());
+            pstmt.setString(2, item.getIntroTextConsumer());
+            pstmt.setString(3, item.getLongDescription2NdPart());
+            log.info("Adding About the products for " + item.getArticleNumber());
 
 			pstmt.executeUpdate();
 			pstmt.close();

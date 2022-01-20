@@ -10,7 +10,7 @@ import org.apache.commons.io.FileUtils;
 import pl.sigitarius.dorel.model.dao.FeatureImageWebsiteDao;
 import pl.sigitarius.dorel.model.dao.MainCollectionImageWebsiteDao;
 import pl.sigitarius.dorel.model.dao.MainProductImageWebsiteDao;
-import pl.sigitarius.dorel.model.db.FeatureImageWebsite;
+import pl.sigitarius.dorel.model.db.FeatureImagesWebsite;
 import pl.sigitarius.dorel.model.db.MainCollectionImageWebsite;
 import pl.sigitarius.dorel.model.db.MainProductImageWebsite;
 import pl.sigitarius.dorel.utils.Alert;
@@ -32,7 +32,7 @@ public class DownloadImagesTask extends Task {
     private final ProgressBar progress;
     private final Stage splash;
     private final Window window;
-    private final MsSqlConnection defaultConnection;;
+    private final MsSqlConnection defaultConnection;
 
     public static final String PROTOCOL = "http";
     public static final String DORELDIGITAL_BASE_URL = "mam-prod.doreldigital.io";
@@ -44,7 +44,7 @@ public class DownloadImagesTask extends Task {
             FeatureImageWebsiteDao featureImageWebsiteDao = new FeatureImageWebsiteDao(defaultConnection);
             MainCollectionImageWebsiteDao mainCollectionImageWebsiteDao = new MainCollectionImageWebsiteDao(defaultConnection);
             MainProductImageWebsiteDao mainProductImageWebsiteDao = new MainProductImageWebsiteDao(defaultConnection);
-            List<FeatureImageWebsite> featureImages = featureImageWebsiteDao.getAllImages();
+            List<FeatureImagesWebsite> featureImages = featureImageWebsiteDao.getAllImages();
             List<MainCollectionImageWebsite> mainCollectionImages = mainCollectionImageWebsiteDao.getAllImages();
             List<MainProductImageWebsite> mainProductImages = mainProductImageWebsiteDao.getAllImages();
             AtomicInteger index = new AtomicInteger(0);
@@ -52,7 +52,7 @@ public class DownloadImagesTask extends Task {
             updateProgress(0, size);
             featureImages.forEach(i -> {
                 try {
-                    long articleNumber = i.getArticle_number();
+                    long articleNumber = i.getArticleNumber();
                     log.info("Downloading feature images for article " + articleNumber);
                     updateProgress(index.incrementAndGet(), size);
                     updateMessage("Przetwarzam " + index.get() + " rekord " + articleNumber);
@@ -77,7 +77,7 @@ public class DownloadImagesTask extends Task {
             updateProgress(0, size);
             mainCollectionImages.forEach(i -> {
                 try {
-                    long articleNumber = i.getArticle_number();
+                    long articleNumber = i.getArticleNumber();
                     log.info("Downloading Main collection image for article " + articleNumber);
                     updateProgress(indexC.incrementAndGet(), sizeC);
                     updateMessage("Przetwarzam " + indexC.get() + " rekord " + articleNumber);
@@ -103,7 +103,7 @@ public class DownloadImagesTask extends Task {
             updateProgress(0, size);
             mainProductImages.forEach(i -> {
                 try {
-                    long articleNumber = i.getArticle_number();
+                    long articleNumber = i.getArticleNumber();
                     log.info("Downloading Main product image for article " + articleNumber);
                     updateProgress(indexP.incrementAndGet(), sizeP);
                     updateMessage("Przetwarzam " + indexP.get() + " rekord " + articleNumber);

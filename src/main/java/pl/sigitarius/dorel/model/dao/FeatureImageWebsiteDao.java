@@ -1,7 +1,8 @@
 package pl.sigitarius.dorel.model.dao;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import pl.sigitarius.dorel.model.db.FeatureImageWebsite;
+import pl.sigitarius.dorel.model.db.FeatureImagesWebsite;
 import pl.sigitarius.dorel.model.pim.ImageItem;
 import pl.sigitarius.dorel.model.pim.Item;
 import pl.sigitarius.dorel.utils.MsSqlConnection;
@@ -16,27 +17,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
+@RequiredArgsConstructor
 public class FeatureImageWebsiteDao {
 
     private static final String SELECT_ALL_WEBSITE_IMAGES = "SELECT * FROM Feature_images_website";
     private static final String INSERT_INTO_WEBSITE_IMAGES = "INSERT INTO Feature_images_website (article_number, image_id, path) VALUES (?, ?, ?)";
     private static final String DELETE_WEBSITE_IMAGES = "DELETE Feature_images_website WHERE article_number = ?";
 
-    private MsSqlConnection connection;
+    private final MsSqlConnection connection;
 
-    public FeatureImageWebsiteDao(MsSqlConnection connection) {
-        this.connection = connection;
-    }
-
-
-    public List<FeatureImageWebsite> getAllImages() {
-        List<FeatureImageWebsite> images = new ArrayList<>();
+    public List<FeatureImagesWebsite> getAllImages() {
+        List<FeatureImagesWebsite> images = new ArrayList<>();
         try (Connection con = DriverManager.getConnection(connection.getURL())) {
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(SELECT_ALL_WEBSITE_IMAGES);
 
-            while(rs.next()){
-                images.add(new FeatureImageWebsite(rs.getLong("article_number"),
+            while (rs.next()) {
+                images.add(new FeatureImagesWebsite(rs.getLong("article_number"),
+                        rs.getInt("id"),
                         rs.getInt("image_id"),
                         rs.getString("path")));
             }

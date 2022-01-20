@@ -1,5 +1,6 @@
 package pl.sigitarius.dorel.model.dao;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import pl.sigitarius.dorel.model.db.Pim;
 import pl.sigitarius.dorel.model.pim.Item;
@@ -17,18 +18,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
+@RequiredArgsConstructor
 public class PimDao {
 
 	private static final String SELECT_FROM_PIM = "SELECT * FROM Pim";
 	private static final String INSERT_INTO_PIM = "INSERT INTO Pim OUTPUT Inserted.ID VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 	private static final String DELETE_PIM = "DELETE Pim WHERE article_number = ?";
 
-	private MsSqlConnection connection;
-
-	public PimDao(MsSqlConnection connection) {
-		this.connection = connection;
-	}
-
+    private final MsSqlConnection connection;
 
 	public List<Pim> getPimItems() {
 		List<Pim> items = new ArrayList<>();

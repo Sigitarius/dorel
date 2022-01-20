@@ -1,5 +1,6 @@
 package pl.sigitarius.dorel.model.dao;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import pl.sigitarius.dorel.model.db.MainCollectionImageWebsite;
 import pl.sigitarius.dorel.model.pim.Item;
@@ -15,17 +16,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
+@RequiredArgsConstructor
 public class MainCollectionImageWebsiteDao {
 
 	private static final String SELECT_ALL_WEBSITE_IMAGES = "SELECT * FROM Main_collection_image_website";
 	private static final String INSERT_INTO_MAIN_COLLECTION = "INSERT INTO Main_collection_image_website VALUES(?, ?)";
 	private static final String DELETE_MAIN_COLLECTION = "DELETE Main_collection_image_website WHERE article_number = ?";
 
-	private MsSqlConnection connection;
-
-	public MainCollectionImageWebsiteDao(MsSqlConnection connection) {
-		this.connection = connection;
-	}
+    private final MsSqlConnection connection;
 
 	public List<MainCollectionImageWebsite> getAllImages() {
 		List<MainCollectionImageWebsite> images = new ArrayList<>();
