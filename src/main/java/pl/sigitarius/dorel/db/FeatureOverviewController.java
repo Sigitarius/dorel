@@ -48,8 +48,8 @@ public class FeatureOverviewController implements Initializable {
 
         featureOverviewTable.setPlaceholder(new Label("Brak rekordów"));
         articleNumberCol.setCellValueFactory(new PropertyValueFactory<>("articleNumber"));
-        shortCol.setCellValueFactory(new PropertyValueFactory<>("id"));
-        longCol.setCellValueFactory(new PropertyValueFactory<>("path"));
+        shortCol.setCellValueFactory(new PropertyValueFactory<>("shortText"));
+        longCol.setCellValueFactory(new PropertyValueFactory<>("longText"));
 
         featureImagesWebsiteList = featuresOverviewDao.getAllFeatures();
 

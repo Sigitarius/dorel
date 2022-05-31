@@ -9,6 +9,7 @@
         <TableView fx:id="atpTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
             <columns>
                 <TableColumn fx:id="articleNumberCol" prefWidth="75.0" text="article_number"/>
+                <TableColumn fx:id="eanCol" prefWidth="75.0" text="ean"/>
                 <TableColumn fx:id="introTextCol" prefWidth="75.0" text="intro_text_consumer"/>
                 <TableColumn fx:id="longDescCol" prefWidth="75.0" text="long_description_2nd_part"/>
             </columns>

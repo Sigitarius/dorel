@@ -3,6 +3,7 @@ package pl.sigitarius.dorel.model.dao;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import pl.sigitarius.dorel.model.db.AboutTheProducts;
+import pl.sigitarius.dorel.model.db.Pim;
 import pl.sigitarius.dorel.model.pim.Item;
 import pl.sigitarius.dorel.utils.MsSqlConnection;
 
@@ -26,13 +27,18 @@ public class AboutTheProductsDao {
     private final MsSqlConnection connection;
 
     public List<AboutTheProducts> getAboutTheProductsItems() {
+
+        List<Pim> pimItems = new PimDao(connection).getPimItems();
+
         List<AboutTheProducts> items = new ArrayList<>();
         try (Connection con = DriverManager.getConnection(connection.getURL())) {
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(SELECT_FROM_ABOUT_THE_PRODUCTS);
             while (rs.next()) {
+                long articleNumber = rs.getLong("article_number");
                 items.add(new AboutTheProducts(
-                        rs.getLong("article_number"),
+                        articleNumber,
+                        getEanFromPim(pimItems, articleNumber),
                         rs.getString("intro_text_consumer"),
                         rs.getString("long_description_2nd_part")
                 ));
@@ -63,18 +69,23 @@ public class AboutTheProductsDao {
 
 
 	public void deleteByArticleNumber(long articleNumber) {
-		try (Connection con = DriverManager.getConnection(connection.getURL())) {
-			PreparedStatement pstmt = con.prepareStatement(DELETE_ABOUT_THE_PRODUCTS);
-			pstmt.setLong(1, articleNumber);
-			int deleted = pstmt.executeUpdate();
-			if(deleted > 0){
-				log.info("Remove AboutTheProducts - article_number " + articleNumber);
-			}
-			pstmt.close();
-		} catch (SQLException e) {
-			log.error("Failed to delete AboutTheProducts from DB", e);
-			throw new RuntimeException(e);
-		}
-	}
+        try (Connection con = DriverManager.getConnection(connection.getURL())) {
+            PreparedStatement pstmt = con.prepareStatement(DELETE_ABOUT_THE_PRODUCTS);
+            pstmt.setLong(1, articleNumber);
+            int deleted = pstmt.executeUpdate();
+            if (deleted > 0) {
+                log.info("Remove AboutTheProducts - article_number " + articleNumber);
+            }
+            pstmt.close();
+        } catch (SQLException e) {
+            log.error("Failed to delete AboutTheProducts from DB", e);
+            throw new RuntimeException(e);
+        }
+    }
+
+    private String getEanFromPim(List<Pim> pimItems, Long articleNumber) {
+        Pim pim = pimItems.stream().filter(e -> articleNumber.equals(e.getArticleNumber())).findAny().orElseThrow();
+        return pim.getEan13BarcodeText();
+    }
 
 }

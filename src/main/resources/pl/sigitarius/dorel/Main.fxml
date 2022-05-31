@@ -23,8 +23,11 @@
                </Menu>
                <Menu mnemonicParsing="false" text="Akcje">
                    <MenuItem mnemonicParsing="false" onAction="#load" text="Wczytaj XML"/>
-                   <MenuItem mnemonicParsing="false" onAction="#downloadImages"
-                             text="Ściągnij obrazki na dysk"/>
+                   <MenuItem mnemonicParsing="false" onAction="#downloadImages" text="Ściągnij obrazki na dysk"/>
+                   <MenuItem mnemonicParsing="false" onAction="#downloadImagesFromXlsx"
+                             text="Ściągnij obrazki na dysk z XLSX"/>
+                   <MenuItem mnemonicParsing="false" onAction="#importEanPP" text="Wczytaj EAN_PurePlayer"/>
+                   <MenuItem mnemonicParsing="false" onAction="#importEanSS" text="Wczytaj EAN_SpecializedStore"/>
                </Menu>
            </MenuBar>
            <AnchorPane HBox.hgrow="ALWAYS">

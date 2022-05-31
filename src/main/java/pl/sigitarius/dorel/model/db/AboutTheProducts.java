@@ -10,6 +10,7 @@ import lombok.ToString;
 public class AboutTheProducts {
 
     private long articleNumber;
+    private String ean;
     private String introTextConsumer;
     private String longDescription2NdPart;
 

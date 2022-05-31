@@ -61,7 +61,6 @@ public class Main extends Application {
             alert.showAndWait();
         } else {
             log.error("An unexpected error occurred in "+t, e);
-
         }
     }
 }

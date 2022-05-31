@@ -31,6 +31,8 @@ public class AboutTheProductsController implements Initializable {
     @FXML
     private TableColumn<AboutTheProducts, String> articleNumberCol;
     @FXML
+    private TableColumn<AboutTheProducts, String> eanCol;
+    @FXML
     private TableColumn<AboutTheProducts, String> introTextCol;
     @FXML
     private TableColumn<AboutTheProducts, String> longDescCol;
@@ -38,6 +40,7 @@ public class AboutTheProductsController implements Initializable {
     private List<AboutTheProducts> aboutList = new ArrayList<>();
     private ObservableList<AboutTheProducts> aboutListObs;
     private AboutTheProductsDao aboutTheProductsDao;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -48,6 +51,7 @@ public class AboutTheProductsController implements Initializable {
 
         atpTable.setPlaceholder(new Label("Brak rekordów"));
         articleNumberCol.setCellValueFactory(new PropertyValueFactory<>("articleNumber"));
+        introTextCol.setCellValueFactory(new PropertyValueFactory<>("introTextConsumer"));
         introTextCol.setCellValueFactory(new PropertyValueFactory<>("introTextConsumer"));
         longDescCol.setCellValueFactory(new PropertyValueFactory<>("longDescription2NdPart"));
 

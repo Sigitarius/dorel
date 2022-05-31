@@ -26,7 +26,9 @@ import pl.sigitarius.dorel.model.dao.MainCollectionImageWebsiteDao;
 import pl.sigitarius.dorel.model.dao.MainProductImageWebsiteDao;
 import pl.sigitarius.dorel.model.dao.PimDao;
 import pl.sigitarius.dorel.model.dao.SellingPointsDao;
+import pl.sigitarius.dorel.tasks.DownloadImagesFromXlsxTask;
 import pl.sigitarius.dorel.tasks.DownloadImagesTask;
+import pl.sigitarius.dorel.tasks.LoadEansTask;
 import pl.sigitarius.dorel.tasks.LoadObjectsTask;
 import pl.sigitarius.dorel.tasks.LoadPayroll;
 import pl.sigitarius.dorel.utils.Configuration;
@@ -103,6 +105,34 @@ public class MainController implements Initializable {
     }
 
     @FXML
+    void importEanPP(ActionEvent event) {
+        importEans(event, LoadEansTask.Type.EAN_PUREPLAYER);
+    }
+
+    @FXML
+    void importEanSS(ActionEvent event) {
+        importEans(event, LoadEansTask.Type.EAN_SPECIALIZEDSTORE);
+    }
+
+    private void importEans(ActionEvent event, LoadEansTask.Type eanType) {
+        log.info("Action: Load objects from XLSX to database");
+        Window window = ((MenuItem) event.getTarget()).getParentPopup().getScene().getWindow();
+        File xmlFile = RetentionFileChooser.showOpenDialog(window, "Select XML file", RetentionFileChooser.FilterMode.XLSX_FILES);
+
+        ProgressBar progress = (ProgressBar) splash.getScene().lookup("#progress");
+        Tooltip progressTt = progress.getTooltip();
+        progress.setVisible(true);
+
+        if (xmlFile != null) {
+            LoadEansTask task = new LoadEansTask(xmlFile, eanType, progress, splash, window, defaultConnection);
+            splash.show();
+            progress.progressProperty().bind(task.progressProperty());
+            progressTt.textProperty().bind(task.messageProperty());
+            new Thread(task).start();
+        }
+    }
+
+    @FXML
     void downloadImages(ActionEvent event) {
         log.info("Action: Download images and saving files to disc");
         Window window = ((MenuItem) event.getTarget()).getParentPopup().getScene().getWindow();
@@ -114,6 +144,26 @@ public class MainController implements Initializable {
 
         if (downloadDirectory != null) {
             DownloadImagesTask task = new DownloadImagesTask(downloadDirectory, progress, splash, window, defaultConnection);
+            splash.show();
+            progress.progressProperty().bind(task.progressProperty());
+            progressTt.textProperty().bind(task.messageProperty());
+            new Thread(task).start();
+        }
+    }
+
+    @FXML
+    void downloadImagesFromXlsx(ActionEvent event) {
+        log.info("Action: Download images from XLSX and saving files to disc");
+        Window window = ((MenuItem) event.getTarget()).getParentPopup().getScene().getWindow();
+        File downloadDirectory = RetentionDirectoryChooser.showDialog(window, "Select directory");
+        File xlsxFile = RetentionFileChooser.showOpenDialog(window, "Select file to import");
+
+        ProgressBar progress = (ProgressBar) splash.getScene().lookup("#progress");
+        Tooltip progressTt = progress.getTooltip();
+        progress.setVisible(true);
+
+        if (downloadDirectory != null) {
+            DownloadImagesFromXlsxTask task = new DownloadImagesFromXlsxTask(xlsxFile, downloadDirectory, progress, splash, window);
             splash.show();
             progress.progressProperty().bind(task.progressProperty());
             progressTt.textProperty().bind(task.messageProperty());

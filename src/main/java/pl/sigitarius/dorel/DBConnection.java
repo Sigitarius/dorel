@@ -94,12 +94,11 @@ public class DBConnection implements Initializable{
 		conn.setUsername(username);
 		conn.setPassword(password);
 		
-		conf.save(conn.getConnName() + ".password", password);
+		conf.savePassword(conn.getConnName() + ".password", password);
 		conf.save(conn.getConnName() + ".host", host);
 		conf.save(conn.getConnName() + ".port", port);
 		conf.save(conn.getConnName() + ".database", database);
 		conf.save(conn.getConnName() + ".username", username);
-		conf.encryptPasswords();
 		(((Node) event.getSource()).getScene()).getWindow().hide();
 		log.info("Zapisano ustawienia połączenia do bazy danych");
 	}
