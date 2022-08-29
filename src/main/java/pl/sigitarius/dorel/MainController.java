@@ -72,7 +72,6 @@ public class MainController implements Initializable {
                 Integer.parseInt(conf.get("default.port")), conf.get("default.database"), conf.get("default.username"),
                 conf.get("default.password"));
 
-
         eanPurePlayerDao = new EanPurePlayerDao(defaultConnection);
         eanSpecializedStoreDao = new EanSpecializedStoreDao(defaultConnection);
         pimDao = new PimDao(defaultConnection);
@@ -254,7 +253,6 @@ public class MainController implements Initializable {
         log.info("Showing Selling points table");
     }
 
-
     private void setPane(BorderPane pane) {
         AnchorPane.setBottomAnchor(pane, 0d);
         AnchorPane.setTopAnchor(pane, 0d);
@@ -288,6 +286,5 @@ public class MainController implements Initializable {
 
     public void setSplash(Stage splash) {
         this.splash = splash;
-
     }
 }
