@@ -60,11 +60,7 @@ public class RetentionFileChooser {
         }
         return chosenFile;
     }
-    
-    public static File showOpenMultipleDialog(String title, FilterMode... filterModes){
-    	return showOpenDialog(null, title, filterModes);
-    }
-    
+
     public static List<File> showOpenMultipleDialog(Window ownerWindow, String title, FilterMode...filterModes){
     	FileChooser openDialog = getInstance(filterModes);
     	openDialog.setTitle(title);

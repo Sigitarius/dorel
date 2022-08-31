@@ -39,8 +39,14 @@ import pl.sigitarius.dorel.utils.RetentionFileChooser;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Comparator;
+import java.util.List;
 import java.util.Objects;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Data
@@ -85,23 +91,35 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    void load(ActionEvent event) {
+    void load(ActionEvent event) throws IOException {
         log.info("Action: Load objects from XML to database");
-        Window window = ((MenuItem) event.getTarget()).getParentPopup().getScene().getWindow();
-        File xmlFile = RetentionFileChooser.showOpenDialog(window, "Select XML file", RetentionFileChooser.FilterMode.XML_FILES);
+        Window window = centerPane.getScene().getWindow();
+        File folder = RetentionDirectoryChooser.showDialog(window, "Select folder with XML files");
 
         ProgressBar progress = (ProgressBar) splash.getScene().lookup("#progress");
         Tooltip progressTt = progress.getTooltip();
         progress.setVisible(true);
 
-        if (xmlFile != null) {
-            LoadObjectsTask task = new LoadObjectsTask(xmlFile, progress, splash, window, defaultConnection);
+        if (folder != null) {
+
+            List<File> files = Files.walk(Paths.get(folder.getAbsolutePath()))
+                    .filter(path -> path.toFile().isFile()
+                            && path.toString().toUpperCase().endsWith(".XML"))
+                    .sorted(Comparator.comparing(MainController::dateFromFileName)).map(Path::toFile).collect(Collectors.toList());
+
+            LoadObjectsTask task = new LoadObjectsTask(files, splash, window, defaultConnection);
             splash.show();
             progress.progressProperty().bind(task.progressProperty());
             progressTt.textProperty().bind(task.messageProperty());
             new Thread(task).start();
         }
     }
+
+    public static String dateFromFileName(final Path path) {
+        String fileName = path.getFileName().toString();
+        return fileName.substring(fileName.length() - 16, fileName.length() - 8);
+    }
+
 
     @FXML
     void importEanPP(ActionEvent event) {
@@ -116,7 +134,7 @@ public class MainController implements Initializable {
     private void importEans(ActionEvent event, LoadEansTask.Type eanType) {
         log.info("Action: Load objects from XLSX to database");
         Window window = ((MenuItem) event.getTarget()).getParentPopup().getScene().getWindow();
-        File xmlFile = RetentionFileChooser.showOpenDialog(window, "Select XML file", RetentionFileChooser.FilterMode.XLSX_FILES);
+        File xmlFile = RetentionFileChooser.showOpenDialog(window, "Select XLSX file", RetentionFileChooser.FilterMode.XLSX_FILES);
 
         ProgressBar progress = (ProgressBar) splash.getScene().lookup("#progress");
         Tooltip progressTt = progress.getTooltip();

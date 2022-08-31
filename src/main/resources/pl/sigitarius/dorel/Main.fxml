@@ -22,7 +22,7 @@
                    <MenuItem mnemonicParsing="false" onAction="#defaultConnection" text="Połączenie DB"/>
                </Menu>
                <Menu mnemonicParsing="false" text="Akcje">
-                   <MenuItem mnemonicParsing="false" onAction="#load" text="Wczytaj XML"/>
+                   <MenuItem mnemonicParsing="false" onAction="#load" text="Wczytaj XMLe z folderu"/>
                    <MenuItem mnemonicParsing="false" onAction="#downloadImages" text="Ściągnij obrazki na dysk"/>
                    <MenuItem mnemonicParsing="false" onAction="#downloadImagesFromXlsx"
                              text="Ściągnij obrazki na dysk z XLSX"/>
